@@ -1,0 +1,3 @@
+,
+/home/marcio/Documenti/Uni/Tirocinio/crab/wrappers/a2a_b.py,-msgsize 100000 -iter 10 -grty 1,1,0,4
+/home/marcio/Documenti/Uni/Tirocinio/crab/wrappers/a2a_b.py,-msgsize 10000 -iter 15 -grty 1,0,2,4

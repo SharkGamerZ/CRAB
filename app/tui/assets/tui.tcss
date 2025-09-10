@@ -1,0 +1,255 @@
+$background: #272822;        
+$surface: #3e3d32;          
+$primary: #a6e22e;          
+$secondary: #66d9ef;        
+$accent: #f92672;           
+$text: #f8f8f2;             
+
+
+Screen {
+    background: $background;
+    color: $text;
+}
+
+Header, Footer {
+    background: $accent;
+    color: $text;
+}
+
+#tab-selector {
+    padding: 1;
+    height: auto;
+    border-bottom: solid $accent;
+}
+
+.tab {
+    margin: 0 1;
+    border: round $accent;
+}
+
+.tab.-primary {
+    background: $accent;
+    color: $text;
+}
+
+.tab:hover {
+    background: $accent;
+}
+
+#main-container {
+    height: 1fr;
+    overflow-y: auto;
+}
+
+BenchmarkSetup {
+    height: 1fr;
+}
+
+BenchmarkTabSelector {
+    height: auto;
+}
+
+.benchmark-tab {
+    margin: 0 1 0 0;
+    border: round $accent;
+    min-width: 12;
+}
+
+.benchmark-tab.-primary {
+    background: $accent;
+    color: $text;
+}
+
+.benchmark-tab:hover {
+    background: $accent;
+}
+
+.add-benchmark-btn {
+    margin: 0 0 0 1;
+    border: none;  
+    background: $accent;
+    color: $text;
+    min-width: 3;
+    max-width: 3;
+    text-align: center;
+}
+
+.add-benchmark-btn:hover {
+    background: $primary;
+}
+
+.add-benchmark-btn:focus {
+    background: $primary;
+}
+
+
+#benchmark-forms-container {
+    padding: 1;
+    height: 1fr;
+    overflow-y: auto;
+}
+
+
+ApplicationForm {
+    height: auto;
+}
+
+
+AutoCompleteInput {
+    height: auto;
+    max-height: 15;
+}
+
+#path {
+    color:$text;
+    border: round $primary;
+    background: $surface;
+}
+
+#path-suggestions {
+    max-height: 8;
+    border: round $primary;
+    background: $surface;
+    margin: 0;
+}
+
+#path-suggestion > Label {
+}
+
+#path-suggestions > ListItem {
+    padding: 0;
+    height: auto;
+    color: $primary;
+}
+
+#path-suggestions > ListItem:hover {
+    background: $secondary;
+}
+
+#path-suggestions > ListItem.-highlighted {
+    background: $primary;
+}
+
+Input, Checkbox, Label {
+    margin: 1 0;
+}
+
+
+Input:hover {
+    border: thick $accent;
+}
+
+Input:focus {
+    border: thick $accent;
+}
+
+
+Checkbox:hover {
+    background: $accent;
+}
+
+Checkbox:focus {
+    background: $accent;
+}
+
+
+Label:hover {
+    color: $accent;
+}
+
+.placeholder {
+    text-align: center;
+    padding: 5;
+    color: $text;
+}
+
+#log-view-container {
+    /* This container wraps the log widget in the new tab */
+    padding: 0 1;
+}
+
+.runner-log-tall {
+    /* This makes the log widget fill the available vertical space */
+    height: 1fr;
+}
+
+.placeholder {
+    align: center middle;
+}
+
+/* Styles for Environment Settings Tab */
+.top_bar {
+    height: auto;
+    align: left middle;
+    padding: 1 2;
+    margin-bottom: 1;
+}
+
+.top_bar > .label {
+    width: auto;
+    margin-right: 2;
+    height: 3;
+    content-align-vertical: middle;
+}
+
+.top_bar > Select {
+    width: auto;
+    max-width: 25;
+}
+
+.top_bar > .spacer {
+    width: 1fr;
+}
+
+#custom_save_area {
+    height: auto;
+    width: auto;
+    align: right middle;
+    padding: 0 2;
+    margin-bottom: 1;
+}
+
+#custom_save_area.hidden {
+    display: none;
+}
+
+#custom_save_area > Button {
+    margin-right: 1;
+}
+#custom_save_area > Input {
+    width: 30;
+    margin: 0;
+}
+
+#variable_list {
+    border: round $primary;
+    padding: 0 1;
+}
+
+VariableRow {
+    height: auto;
+    margin: 1 0;
+}
+
+VariableRow > Input {
+    margin: 0; /* Azzera il margine verticale per allineare gli input */
+}
+
+VariableRow > .variable_value {
+    margin-left: 1; /* Mantiene un po' di spazio tra i due input */
+}
+
+.variable_key {
+    width: 30%;
+}
+
+.variable_value {
+    width: 1fr;
+    margin: 0 1;
+}
+
+.delete_variable_btn {
+    min-width: 5;
+    max-width: 5;
+    height: 3;
+}

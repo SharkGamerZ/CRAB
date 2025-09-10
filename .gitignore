@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+data/
+benchark_mix.txt
+tui_node_file
+benchmarks/
