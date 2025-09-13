@@ -5,7 +5,7 @@ from textual.widgets import Button
 from .benchmark_tab_selector import BenchmarkTabSelector
 from .application_form import ApplicationForm
 
-class BenchmarkSetup(Container):
+class ApplicationSetup(Container):
     def __init__(self, app_ref):
         super().__init__()
         self.app_ref = app_ref

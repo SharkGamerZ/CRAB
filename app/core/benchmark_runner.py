@@ -62,12 +62,16 @@ class BlinkRunner:
             self.log(f"[bold red]Error generating config file: {e}[/]")
             return
 
+        # Create a temporary node file
         node_file_path = "tui_node_file"
         with open(node_file_path, "w") as f:
             f.write("localhost\n")
 
+        # Checks if it's using SLURM 
+        nodes = "auto" if execution_env.get("BLINK_WL_MANAGER") == "slurm" else node_file_path
+
         command = [
-            "python3", "-u", "runner.py", app_mix_path, node_file_path,
+            "python3", "-u", "runner.py", app_mix_path, nodes,
             "-n", "1", "-am", "l", "-mn", "1", "-mx", "2",
             "-t", "600", "-p", "2", "-ro", "stdout"
         ]

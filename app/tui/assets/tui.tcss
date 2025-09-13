@@ -253,3 +253,76 @@ VariableRow > .variable_value {
     max-width: 5;
     height: 3;
 }
+
+
+/* Benchmark Setup   */
+
+/* Stile per il container principale del form */
+BenchmarkOptions {
+    layout: vertical;
+    overflow-y: auto;  /* Permette lo scorrimento verticale */
+    overflow-x: hidden;
+    padding: 1 2;
+    
+    /* MODIFICA CHIAVE: Assegna un'altezza definita per abilitare lo scroll */
+    height: 100%;
+
+    border: round dodgerblue;
+    border-title-align: center;
+}
+
+/* Stile per il titolo principale del form */
+#benchmark-options-title {
+    content-align: center middle;
+    width: 100%;
+    margin-bottom: 1;
+    text-style: bold underline;
+}
+
+/* 
+ * Container per ogni singola opzione (Label + Input).
+ */
+.option-group {
+    layout: horizontal;
+    height: auto;
+    margin-bottom: 1;
+
+    /* MODIFICA CHIAVE: Allinea verticalmente gli elementi al centro */
+    align-vertical: middle;
+}
+
+/* Stile per tutte le etichette delle opzioni */
+.option-label {
+    width: 35%;
+    text-align: right;
+    padding: 1;
+    margin: 1 0;
+}
+
+/* Stile per tutti i campi di input (Input, Select, Switch) */
+.option-input {
+    width: auto;
+    margin: 1 0;
+}
+
+/* Un aggiustamento specifico per lo Switch */
+Switch.option-input {
+    width: auto;
+    height: 1;
+}
+
+Select.option-input {
+    width: 30;
+}
+
+/* Stile per il container dei pulsanti in fondo */
+.button-container {
+    align: center middle;
+    width: 100%;
+    height: auto;
+    margin-top: 1;
+}
+
+.button-container Button {
+    margin: 0 1;
+}

@@ -8,8 +8,10 @@ from textual.reactive import reactive
 import json
 import os
 
+
 from .constants import SECTIONS
-from .widgets.benchmark_setup import BenchmarkSetup
+from .widgets.applications_setup import ApplicationSetup
+from .widgets.benchmark_options import BenchmarkOptions
 from .widgets.tab_selector import TabSelector
 from .widgets.application_form import ApplicationForm
 from .widgets.environment_settings import EnvironmentSettings
@@ -25,7 +27,9 @@ class BenchmarkApp(App):
         self.global_benchmark_states = {0: {"path": "", "args": "", "collect": False, "start": "", "end": ""}}
         self.current_environment_settings = self._load_default_env()
         
-        self.benchmark_container = BenchmarkSetup(self)
+        self.applications_container = ApplicationSetup(self)
+        self.benchmark_container = BenchmarkOptions()
+
         self.env_container = EnvironmentSettings()
         self.log_container = Vertical(
             RichLog(id="runner-log", highlight=True, classes="runner-log-tall"),
@@ -48,6 +52,7 @@ class BenchmarkApp(App):
         yield Header()
         yield TabSelector(id="tab-selector")
         with Container(id="main-content-area"):
+            yield self.applications_container
             yield self.benchmark_container
             yield self.env_container
             yield self.log_container
@@ -61,16 +66,17 @@ class BenchmarkApp(App):
         self.current_environment_settings = message.new_env
 
     def save_benchmark_state(self):
-        if self.benchmark_container and hasattr(self.benchmark_container, 'save_current_form_state'):
-            self.benchmark_container.save_current_form_state()
+        if self.applications_container and hasattr(self.applications_container, 'save_current_form_state'):
+            self.applications_container.save_current_form_state()
 
     def show_tab(self, index: int):
         if self.current_tab == 0 and index != 0:
             self.save_benchmark_state()
         self.current_tab = index
-        self.benchmark_container.display = (index == 0)
-        self.env_container.display = (index == 1)
-        self.log_container.display = (index == 2)
+        self.applications_container.display = (index == 0)
+        self.benchmark_container.display = (index == 1)
+        self.env_container.display = (index == 2)
+        self.log_container.display = (index == 3)
         self.update_tabs()
 
     def update_tabs(self):
@@ -84,13 +90,13 @@ class BenchmarkApp(App):
             event.stop()
 
     def key_space(self) -> None:
-        self.benchmark_container.forms_container.query_one(ApplicationForm).run_benchmark()
+        self.applications_container.forms_container.query_one(ApplicationForm).run_benchmark()
 
     def key_l(self) -> None:
-        self.benchmark_container.forms_container.query_one(ApplicationForm).load_form_data()
+        self.applications_container.forms_container.query_one(ApplicationForm).load_form_data()
 
     def key_s(self) -> None:
-        self.benchmark_container.forms_container.query_one(ApplicationForm).save_form_data()
+        self.applications_container.forms_container.query_one(ApplicationForm).save_form_data()
 
     def key_escape(self) -> None:
         self.query().blur()

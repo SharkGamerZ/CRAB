@@ -262,9 +262,9 @@ def main():
     if node_file == "auto":
         if not "BLINK_WL_MANAGER" in os.environ or os.environ["BLINK_WL_MANAGER"] != "slurm":
             raise Exception("auto node file can only be used if slurm is used as workload manager.")
-        node_file = "conf/auto_node_file_" + str(os.getpid()) + ".txt"
+        node_file = "auto_node_file_" + str(os.getpid()) + ".txt"
 
-        nodelist = subprocess.check_output(["sinfo", "-h", "-o", "%N", "-t", "idle"], text=True).strip()
+        nodelist = subprocess.check_output(["sinfo", "-h", "-o", "%N"], text=True).strip()
         subprocess.call(["scontrol", "show", "hostnames", nodelist], stdout=open(node_file, "w"))
     
     # Create header in description.csv
@@ -396,6 +396,7 @@ def main():
 
     # assign nodes to apps
     nodes_frame = pandas.read_csv(node_file, header=None, keep_default_na=False, dtype=str)
+
     # print the node_file content
     with open(node_file, 'r') as f:
         nodes_frame_content = f.read()

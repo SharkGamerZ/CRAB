@@ -2,7 +2,8 @@
 # per evitare errori di importazione circolare.
 
 SECTIONS = [
-    "Benchmark Setup",
+    "Applications",
+    "Benchmark Options",
     "Enviroment Settings",
     "Runner Log"
 ]

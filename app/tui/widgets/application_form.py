@@ -36,7 +36,7 @@ class ApplicationForm(Vertical):
 
     def compose(self) -> ComposeResult:
         yield Label("Application Path:")
-        yield Label(id="path", renderable=self.form_data["path"] or "Select a file")
+        yield Label(self.form_data["path"] or "Select a file", id="path")
         yield Button("Browse", id="browse-path", variant="primary", classes="browse-btn")
 
         yield Label("Arguments:")
@@ -69,7 +69,7 @@ class ApplicationForm(Vertical):
             self.form_data["collect"] = event.checkbox.value
 
     def get_form_data(self):
-        self.form_data["path"] = self.query_one("#path", Label).renderable
+        self.form_data["path"] = self.query_one("#path", Label)
         return self.form_data.copy()
 
     def set_form_data(self, data):
@@ -134,18 +134,18 @@ class ApplicationForm(Vertical):
             except json.JSONDecodeError:
                 self.notify("Invalid JSON format in the file")
                 return
-        await self.app_ref.benchmark_container.tab_selector.clear_benchmark_forms()
+        await self.app_ref.applications_container.tab_selector.clear_benchmark_forms()
         self.app_ref.global_benchmark_states.clear()
         for i in range(len(data)):
             self.global_benchmark_states[i] = {
                 "path": "", "args": "", "collect": False, "start": "", "end": ""
             }
-            self.app_ref.benchmark_container.tab_selector.add_benchmark()
+            self.app_ref.applications_container.tab_selector.add_benchmark()
         for benchmark_id, form_data in data.items():
             self.global_benchmark_states[int(benchmark_id)] = form_data
             if int(benchmark_id) == self.benchmark_id:
                 self.set_form_data(form_data)
-        self.app_ref.benchmark_container.tab_selector.update_benchmark_tabs(0)
+        self.app_ref.applications_container.tab_selector.update_benchmark_tabs(0)
         self.notify(f"Loaded data from {file_name}")
 
 
@@ -154,7 +154,7 @@ class ApplicationForm(Vertical):
         # 1. Prepara la TUI: pulisci il log e mostra la tab corretta
         log = self.app.query_one("#runner-log", RichLog)
         log.clear()
-        self.app.show_tab(2)
+        self.app.show_tab(3)
 
         # 2. Raccogli i dati dalla UI e crea un oggetto stato
         self.global_benchmark_states[self.benchmark_id] = self.get_form_data()
