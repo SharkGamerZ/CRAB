@@ -4,6 +4,10 @@ from textual.widgets import Button, Input, Label, Select, Switch
 class BenchmarkOptions(VerticalScroll):
     """Un widget per configurare ed eseguire un benchmark."""
 
+    def __init__(self, app_ref):
+        super().__init__()
+        self.app_ref = app_ref
+
     def on_mount(self) -> None:
         """Imposta il titolo del bordo quando il widget viene montato."""
         self.border_title = "Benchmark Configuration"
@@ -107,3 +111,34 @@ class BenchmarkOptions(VerticalScroll):
         with Horizontal(classes="button-container"):
             yield Button("Save Options", variant="primary", id="button-save-options")
             yield Button("Load Options", id="button-load-options")
+
+
+    def get_state(self) -> dict:
+        """
+        Raccoglie lo stato corrente di tutte le opzioni di benchmark.
+
+        Returns:
+            Un dizionario con l'ID di ogni widget come chiave e il suo valore.
+        """
+        state = {}
+        for widget in self.query(".option-input"):
+            # Usiamo l'ID del widget come chiave per lo stato
+            if widget.id:
+                state[widget.id] = widget.value
+        return state
+
+    def set_state(self, state: dict) -> None:
+        """
+        Imposta lo stato del form in base a un dizionario di dati.
+
+        Args:
+            state: Un dizionario dove le chiavi corrispondono agli ID dei widget.
+        """
+        if not state:
+            return
+        for widget_id, value in state.items():
+            try:
+                widget = self.query_one(f"#{widget_id}", (Input, Select, Switch))
+                widget.value = value
+            except Exception as e:
+                self.app.log(f"Could not set state for widget '{widget_id}': {e}")
