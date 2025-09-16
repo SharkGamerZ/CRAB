@@ -278,11 +278,8 @@ BenchmarkOptions {
     overflow-x: hidden;
     padding: 1 2;
     
-    /* MODIFICA CHIAVE: Assegna un'altezza definita per abilitare lo scroll */
     height: 100%;
 
-    border: round dodgerblue;
-    border-title-align: center;
 }
 
 /* Stile per il titolo principale del form */

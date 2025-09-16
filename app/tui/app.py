@@ -91,11 +91,6 @@ class BenchmarkApp(App):
             event.stop()
 
 
-    @on(LoadConfiguration)
-    def handle_load_request(self) -> None:
-        # Qui, nel prossimo passo, metteremo la logica di caricamento
-        self.notify("Load requested! (Logic to be implemented)")
-    
     @on(RunBenchmark)
     def handle_run_request(self) -> None:
         # Qui, nel prossimo passo, metteremo la logica per l'esecuzione
@@ -190,42 +185,6 @@ class BenchmarkApp(App):
 
 
 
-    # @on (Button.Pressed, "#load-form")
-    # @work
-    # async def load_form_data(self):
-    #     file_name = await self.app_ref.push_screen_wait(FileOpen())
-    #     if not file_name:
-    #         self.notify("Load cancelled")
-    #         return
-    #     data = {}
-
-
-
-    #     with open(file_name, "r") as json_file:
-    #         try:
-    #             data = json.load(json_file)
-    #         except json.JSONDecodeError:
-    #             self.notify("Invalid JSON format in the file")
-    #             return
-
-    #     await self.app_ref.applications_container.tab_selector.clear_benchmark_forms()
-    #     self.app_ref.global_benchmark_states.clear()
-    #     for i in range(len(data)):
-    #         self.global_benchmark_states[i] = {
-    #             "path": "", "args": "", "collect": False, "start": "", "end": ""
-    #         }
-    #         self.app_ref.applications_container.tab_selector.add_benchmark()
-
-    #     for benchmark_id, form_data in data.items():
-    #         self.global_benchmark_states[int(benchmark_id)] = form_data
-    #         if int(benchmark_id) == self.benchmark_id:
-    #             self.set_form_data(form_data)
-
-    #     self.app_ref.applications_container.tab_selector.update_benchmark_tabs(0)
-    #     self.notify(f"Loaded data from {file_name}")
-    #
-    #
-    #
     # def run_benchmark(self):
     #     # 1. Prepara la TUI: pulisci il log e mostra la tab corretta
     #     log = self.app.query_one("#runner-log", RichLog)

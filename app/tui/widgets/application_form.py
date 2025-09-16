@@ -35,7 +35,7 @@ class ApplicationForm(Vertical):
 
     def compose(self) -> ComposeResult:
         yield Label("Application Path:")
-        yield Label(self.form_data["path"] or "Select a file", id="path")
+        yield Label("Select a file", id="path")
         yield Button("Browse", id="browse-path", variant="primary", classes="browse-btn")
 
         yield Label("Arguments:")
@@ -76,7 +76,7 @@ class ApplicationForm(Vertical):
                 try:
                     if field_id == "path":
                         widget = self.query_one("#path", Label)
-                        widget.update(value)
+                        widget.update(value) if value else widget.update("Select a file")
                         continue
 
                     widget = self.query_one(f"#{field_id}", (Input, Checkbox))

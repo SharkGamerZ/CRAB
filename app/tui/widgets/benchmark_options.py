@@ -15,8 +15,6 @@ class BenchmarkOptions(VerticalScroll):
 
     def compose(self):
         """Crea i widget figli per il form delle opzioni."""
-        
-        yield Label("Benchmark Options", id="benchmark-options-title")
 
         # --- Argomenti Posizionali Obbligatori ---
         with Container(classes="option-group"):
