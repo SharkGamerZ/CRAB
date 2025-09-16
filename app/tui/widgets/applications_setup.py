@@ -75,7 +75,6 @@ class ApplicationSetup(Container):
         self.tab_selector.add_benchmark()
         self.show_benchmark(new_index) # Questo lo renderà visibile e nasconderà gli altri
 
-    # Questo metodo non richiede modifiche
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id and event.button.id.startswith("benchmark-"):
             index = int(event.button.id.split("-")[1])
@@ -84,12 +83,10 @@ class ApplicationSetup(Container):
             self.add_benchmark()
             event.stop()
 
-    # Questo metodo non richiede modifiche
     def get_state(self) -> dict:
         self.save_current_form_state()
         return self.benchmark_states.copy()
 
-    # MODIFICATO: Logica di `set_state` per ricostruire l'interfaccia
     async def set_state(self, state: dict):
         with open("application_setup.log", "w") as log_file:
             log_file.write(f"Setting new state: {state}\n")

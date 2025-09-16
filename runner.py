@@ -14,6 +14,7 @@ import datetime
 import pandas
 import signal
 import shlex
+import json # Aggiunto import per gestire JSON
 
 
 class data_container:
@@ -63,6 +64,10 @@ def check_CI(container_list, alpha, beta, converge_all, run):
 
 
 def run_job(job, wlmanager, ppn):
+    if job.num_nodes == 0:
+        print(f"[WARNING] L'applicazione {job.id_num} ha 0 nodi allocati e non verrà eseguita.")
+        return 
+
     cmd_string = wlmanager.run_job(job.node_list, ppn, job.run_app())
     if not cmd_string or cmd_string == "":
         cmd_string = "echo a > /dev/null"
@@ -205,59 +210,52 @@ def print_runtime(obj, mode, ro_file):
 
 def main():
     pre_start_time = time.time()
-    parser = argparse.ArgumentParser(description='Runner of framework.')
-    parser.add_argument('app_mix', help='The file specifying which apps mix to run.')
-    parser.add_argument('node_file', help='Path to node list file. If \'auto\' is specified, nodes are allocated automatically (it assumes Slurm is available).')
-    parser.add_argument('-n', '--numnodes', help='Number of nodes on which to run the applications. It must be smaller or equal than the number of nodes specified in node_file',
-                         type=int, required=True)
-    parser.add_argument('-am', '--allocationmode', help='Way of allocating nodes (default: linear)',
-                        default='l', choices=['l', 'c', 'r', 'i', '+r'])
-    parser.add_argument('-as', '--allocationsplit',
-                        help='Percent allocated nodes per application, format: percent_0:percent_1:...:percent_k-1.', default='e')
-    parser.add_argument('-mn', '--minruns',
-                        help='Minimum number of runs.', default=10, type=int)
-    parser.add_argument('-mx', '--maxruns',
-                        help='Maximum number of runs.', default=1000, type=int)
-    parser.add_argument(
-        '-t', '--timeout', help='Maximum duration of testing.', default=100.0, type=float)
-    parser.add_argument(
-        '-a', '--alpha', help='Confidence interval with 1-alpha.', default=0.05, type=float)
-    parser.add_argument(
-        '-b', '--beta', help='Congervence if mean reached beta of confidence interval.', default=0.05, type=float)
-    parser.add_argument(
-        '-p', '--ppn', help='Processes per node.', default=1, type=int)
-    parser.add_argument('-ca', '--convergeall',
-                        help='Test until all metrics converged.', action='store_true', default=False)
-    parser.add_argument('-of', '--outformat', help='Data output format (default: csv)',
-                        default='csv', choices=['csv', 'hdf'])
-    parser.add_argument('-ro', '--runtimeout', help='Place where runtime feedback is printed',
-                        default='stdout', choices=['stdout', 'none', 'file', '+file'])
-    parser.add_argument('-s', '--seed', help='Seed for randomness', default=1, type=int)
-    parser.add_argument('-d', '--datapath', help='Path where data is written', default='./data')
-    parser.add_argument('-e', '--extrainfo', help='Extra info specifying details of this specific execution (will be stored in the description.csv file)', type=str)
-    parser.add_argument('-rm', '--replace_mix_args', help='Comma separated string of arguments to replace (in the format str:str). E.g., "server:192.168.0.1,client:192.168.0.2" replaces the string "server" in the app_mix with "192.168.0.1", etc..', type=str)
+    
+    # --- INIZIO BLOCCO MODIFICATO ---
+    # Semplificato argparse per accettare un singolo file di configurazione JSON
+    parser = argparse.ArgumentParser(description='Runner of framework from a JSON config file.')
+    parser.add_argument('config_file', help='Path to the JSON configuration file.')
     args = parser.parse_args()
 
-    # argument namespace to variables
+    # Carica il file di configurazione JSON
+    with open(args.config_file, 'r') as f:
+        config = json.load(f)
+
+    global_options = config.get('global_options', {})
+    applications_config = config.get('applications', {})
+
+    # argument namespace to variables, leggendo da JSON e usando i default originali
     import_path_wlm = "./app/core/wl_manager/" + \
         os.environ["BLINK_WL_MANAGER"] + ".py"
-    app_mix_path = args.app_mix
-    node_file = args.node_file
-    allocation_mode = args.allocationmode
-    allocation_split = args.allocationsplit
-    out_format = args.outformat
-    min_runs = args.minruns
-    max_runs = args.maxruns
-    time_out = args.timeout
-    ppn = args.ppn
-    alpha, beta = args.alpha, args.beta
-    converge_all = args.convergeall
-    ro_mode = args.runtimeout
-    data_path = args.datapath
-    num_nodes = args.numnodes
-    replace_mix_args = args.replace_mix_args
+    
+    # Se 'node_file' non e' specificato o e' vuoto, usa 'nodes', altrimenti usa 'node_file'
+    node_file = global_options.get('node_file')
+    if not node_file:
+        node_file = global_options.get('nodes', 'auto')
 
-    random.seed(args.seed)
+    # numnodes è obbligatorio, quindi non forniamo un default
+    num_nodes_str = global_options.get('numnodes')
+    if num_nodes_str is None or not str(num_nodes_str).isdigit():
+        raise ValueError("La chiave 'numnodes' nel file JSON e' obbligatoria e deve essere un intero.")
+    num_nodes = int(num_nodes_str)
+
+    allocation_mode = global_options.get('allocationmode', 'l')
+    allocation_split = global_options.get('allocationsplit', 'e')
+    min_runs = int(global_options.get('minruns', 10))
+    max_runs = int(global_options.get('maxruns', 1000))
+    time_out = float(global_options.get('timeout', 100.0))
+    alpha = float(global_options.get('alpha', 0.05))
+    beta = float(global_options.get('beta', 0.05))
+    ppn = int(global_options.get('ppn', 1))
+    converge_all = bool(global_options.get('convergeall', False))
+    out_format = global_options.get('outformat', 'csv')
+    ro_mode = global_options.get('runtimeout', 'stdout')
+    data_path = global_options.get('datapath', './data')
+    extrainfo = global_options.get('extrainfo', '')
+    replace_mix_args = global_options.get('replace_mix_args', '')
+    
+    random.seed(int(global_options.get('seed', 1)))
+    # --- FINE BLOCCO MODIFICATO ---
 
     if node_file == "auto":
         if not "BLINK_WL_MANAGER" in os.environ or os.environ["BLINK_WL_MANAGER"] != "slurm":
@@ -280,16 +278,12 @@ def main():
             os.makedirs(data_directory)
             break
     
-
     # Append info to description.csv file
     with open(data_path + '/description.csv', 'a+') as desc_file:
-        extra = ""
-        if args.extrainfo:
-            extra = args.extrainfo
-        desc_file.write(app_mix_path + ',' + os.environ["BLINK_SYSTEM"] + ',' + str(args.numnodes) + ',' + allocation_mode + ',' +
+        extra = extrainfo
+        desc_file.write(args.config_file + ',' + os.environ["BLINK_SYSTEM"] + ',' + str(num_nodes) + ',' + allocation_mode + ',' +
                         allocation_split + ',' + str(ppn) + ',' + out_format + ',' + extra + ',' + data_directory + '\n')
            
-
     # prepare runtime feedback output
     ro_file_path = data_directory+'/run_log'
     if ro_mode == 'file' or ro_mode == '+file':
@@ -299,8 +293,8 @@ def main():
     if ro_mode == 'file':
         print('Runtime feedback printed to: '+ro_file_path)
 
-    print_runtime('\nPassed arguments:', ro_mode, ro_file)
-    print_runtime(args, ro_mode, ro_file)
+    print_runtime('\nConfig from JSON:', ro_mode, ro_file)
+    print_runtime(json.dumps(config, indent=4), ro_mode, ro_file)
 
     # requiered testing parameters
     num_apps = 0
@@ -311,76 +305,69 @@ def main():
 
     print_runtime('\nApps:', ro_mode, ro_file)
 
-    # read schedule file and import app classes
-    with open(app_mix_path, 'r') as test_bench:
-        # get delimiter from first line
-        first_line = test_bench.readline()
-        file_delimiter = first_line[:-1]
-        if file_delimiter == '':
-            file_delimiter = ','  # default for delimiter
+    # --- INIZIO BLOCCO MODIFICATO ---
+    # Sostituzione della lettura del file app_mix con l'iterazione sulla configurazione JSON
+    # Ordina le applicazioni per chiave ('0', '1', ...) per garantire un ordine di elaborazione prevedibile
+    for app_key, app_details in sorted(applications_config.items()):
+        import_path_app = app_details.get("path")
 
-        for line in test_bench:
-            line_list = [x.strip() for x in line.split(file_delimiter)]
+        # Se il path e' vuoto, salta questa applicazione, come nell'esempio
+        if not import_path_app:
+            continue
 
-            # path to class
-            import_path_app = line_list[0]
+        app_args = app_details.get("args", "")
+        collect_flag = app_details.get("collect", False)
+        start_val = app_details.get("start", "")
+        end_val = app_details.get("end", "")
 
-            # arguments for app
-            args = line_list[1]
+        # replace arguments with those specified
+        if replace_mix_args and replace_mix_args != "":
+            for replacement in replace_mix_args.split(","):
+                key, value = replacement.split(":")
+                app_args = app_args.replace(key, value)
 
-            # replace arguments with those specified
-            if replace_mix_args and replace_mix_args != "":
-                for replacement in replace_mix_args.split(","):
-                    key, value = replacement.split(":")
-                    args = args.replace(key, value)
+        # start of app
+        if start_val == '':
+            start_time = 0
+        else:
+            start_time = float(start_val)
+        schedule += [(num_apps, 's', start_time)]
 
-            # collection flag
-            if line_list[2] == '0':
-                collect_flag = False
-            else:
-                collect_flag = True
+        # termination of app
+        if end_val == '':
+            apps_awaited += [num_apps]
+            end_cond = 'run until finished'
+        elif end_val == 'f':
+            apps_waiting += [num_apps]
+            end_cond = 'wait until others finished'
+        else:
+            end_time = float(end_val)
+            if end_time < start_time:
+                raise Exception('Application '+str(num_apps) +
+                                ' must be started before it can be killed.')
+            if collect_flag:  # if data should be collected send sigterm
+                schedule += [(num_apps, 't', end_time)]
+                end_cond = 'terminate at: '+str(end_time)+'s'
+            else:  # if no data needs to be collected can just kill
+                schedule += [(num_apps, 'k', end_time)]
+                end_cond = 'kill at: '+str(end_time)+'s'
 
-            # start of app
-            if line_list[3] == '':
-                start_time = 0
-            else:
-                start_time = float(line_list[3])
-            schedule += [(num_apps, 's', start_time)]
+        # import app class
+        # assumes name is last element of path without .py suffix
+        app_class_name = (import_path_app.split(os.sep)[-1])[:-3]
+        print(f"The app_class_name is {app_class_name}")
+        print(f"The import_path_app is {import_path_app}")
+        spec_app = importlib.util.spec_from_file_location(
+            app_class_name, import_path_app)
+        mod_app = importlib.util.module_from_spec(spec_app)
+        spec_app.loader.exec_module(mod_app)
+        apps += [mod_app.app(num_apps, collect_flag, app_args)]
 
-            # termination of app
-            if line_list[4] == '':
-                apps_awaited += [num_apps]
-                end_cond = 'run until finished'
-            elif line_list[4] == 'f':
-                apps_waiting += [num_apps]
-                end_cond = 'wait until others finished'
-            else:
-                end_time = float(line_list[4])
-                if end_time < start_time:
-                    raise Exception('Application '+str(num_apps) +
-                                    ' must be started before it can be killed.')
-                if collect_flag:  # if data should be collected send sigterm
-                    schedule += [(num_apps, 't', end_time)]
-                    end_cond = 'terminate at: '+str(end_time)+'s'
-                else:  # if no data needs to be collected can just kill
-                    schedule += [(num_apps, 'k', end_time)]
-                    end_cond = 'kill at: '+str(end_time)+'s'
+        print_runtime((str(num_apps)+': with arguments:"'+app_args+'", collection flag: '+str(collect_flag)
+                       + ', ending condition: '+end_cond+'.'), ro_mode, ro_file)
 
-            # import app class
-            # assumes name is last element of path without .py suffix
-            app_class_name = (import_path_app.split(os.sep)[-1])[:-3]
-            print(f"The app_class_name is {app_class_name}")
-            print(f"The import_path_app is {import_path_app}")
-            spec_app = importlib.util.spec_from_file_location(
-                app_class_name, import_path_app)
-            mod_app = importlib.util.module_from_spec(spec_app)
-            spec_app.loader.exec_module(mod_app)
-            apps += [mod_app.app(num_apps, collect_flag, args)]
-
-            print_runtime((str(num_apps)+': with arguments:"'+args+'", collection flag: '+str(collect_flag)
-                           + ', ending condition: '+end_cond+'.'), ro_mode, ro_file)
-
-            num_apps += 1
+        num_apps += 1
+    # --- FINE BLOCCO MODIFICATO ---
 
     if num_apps == 0:
         raise Exception('Must specify at least one application to run.')
@@ -401,8 +388,6 @@ def main():
     with open(node_file, 'r') as f:
         nodes_frame_content = f.read()
         print("[DEBUG] The content of the node file is:\n" + nodes_frame_content)
-
-
 
     #num_elems = nodes_frame.size
     num_cols = nodes_frame.shape[1]

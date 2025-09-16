@@ -70,10 +70,14 @@ class BlinkRunner:
         # Checks if it's using SLURM 
         nodes = "auto" if execution_env.get("BLINK_WL_MANAGER") == "slurm" else node_file_path
 
+        # command = [
+        #     "python3", "-u", "runner.py", app_mix_path, nodes,
+        #     "-n", "1", "-am", "l", "-mn", "1", "-mx", "2",
+        #     "-t", "600", "-p", "2", "-ro", "stdout"
+        # ]
+
         command = [
-            "python3", "-u", "runner.py", app_mix_path, nodes,
-            "-n", "1", "-am", "l", "-mn", "1", "-mx", "2",
-            "-t", "600", "-p", "2", "-ro", "stdout"
+            "python", "-u", "runner.py", "prova6.json"
         ]
 
         self.log(f"[bold red]Starting benchmark...[/]")
