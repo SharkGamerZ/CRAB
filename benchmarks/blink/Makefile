@@ -15,7 +15,7 @@ CFLAGS = -lm -D_GNU_SOURCE -O3
 all: $(BINS)
 
 $(BIN_DIR)/%: $(SRC_DIR)/%.c $(SRC_DIR)/common.h
-	$(CC) -o $@ $< $(CFLAGS)
+	mpicc -o $@ $< $(CFLAGS)
 
 clean:
 	-rm -f $(BINS)
