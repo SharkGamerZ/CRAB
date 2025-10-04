@@ -1,0 +1,7 @@
+[WORKER FATAL ERROR] Engine._run_worker() missing 1 required positional argument: 'output_dir'
+Traceback (most recent call last):
+  File "/leonardo/home/userexternal/mmarcel3/CRAB.OLD/src/crab/cli/orchestrator.py", line 67, in run_from_cli
+    engine.run(
+  File "/leonardo/home/userexternal/mmarcel3/CRAB.OLD/src/crab/core/engine.py", line 240, in run
+    self._run_worker(config, environment)
+TypeError: Engine._run_worker() missing 1 required positional argument: 'output_dir'

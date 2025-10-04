@@ -1,0 +1,28 @@
+[WORKER FATAL ERROR] [Errno 2] No such file or directory: '/leonardo/home/userexternal/mmarcel3/CRAB.OLD/data/leonardo/2025-10-02_20-33-21-794428/environment.json'
+Traceback (most recent call last):
+  File "/leonardo/home/userexternal/mmarcel3/CRAB.OLD/src/crab/cli/orchestrator.py", line 58, in run_from_cli
+    with open(env_file, 'r') as f:
+         ^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/leonardo/home/userexternal/mmarcel3/CRAB.OLD/data/leonardo/2025-10-02_20-33-21-794428/environment.json'
+[WORKER FATAL ERROR] [Errno 2] No such file or directory: '/leonardo/home/userexternal/mmarcel3/CRAB.OLD/data/leonardo/2025-10-02_20-33-21-794428/environment.json'
+Traceback (most recent call last):
+  File "/leonardo/home/userexternal/mmarcel3/CRAB.OLD/src/crab/cli/orchestrator.py", line 58, in run_from_cli
+    with open(env_file, 'r') as f:
+         ^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/leonardo/home/userexternal/mmarcel3/CRAB.OLD/data/leonardo/2025-10-02_20-33-21-794428/environment.json'
+srun: error: lrdn3364: task 2: Exited with exit code 1
+[WORKER FATAL ERROR] [Errno 2] No such file or directory: '/leonardo/home/userexternal/mmarcel3/CRAB.OLD/data/leonardo/2025-10-02_20-33-21-794428/environment.json'
+Traceback (most recent call last):
+  File "/leonardo/home/userexternal/mmarcel3/CRAB.OLD/src/crab/cli/orchestrator.py", line 58, in run_from_cli
+    with open(env_file, 'r') as f:
+         ^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/leonardo/home/userexternal/mmarcel3/CRAB.OLD/data/leonardo/2025-10-02_20-33-21-794428/environment.json'
+srun: error: lrdn3365: task 3: Exited with exit code 1
+[WORKER FATAL ERROR] [Errno 2] No such file or directory: '/leonardo/home/userexternal/mmarcel3/CRAB.OLD/data/leonardo/2025-10-02_20-33-21-794428/environment.json'
+Traceback (most recent call last):
+  File "/leonardo/home/userexternal/mmarcel3/CRAB.OLD/src/crab/cli/orchestrator.py", line 58, in run_from_cli
+    with open(env_file, 'r') as f:
+         ^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/leonardo/home/userexternal/mmarcel3/CRAB.OLD/data/leonardo/2025-10-02_20-33-21-794428/environment.json'
+srun: error: lrdn3363: task 1: Exited with exit code 1
+srun: error: lrdn3361: task 0: Exited with exit code 1
