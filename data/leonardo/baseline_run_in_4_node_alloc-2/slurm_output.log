@@ -6,19 +6,19 @@ Loading openmpi/4.1.6--gcc--12.2.0-cuda-12.2
     pigz/2.8-5bwzpml zstd/1.5.6-uq5yyux tar/1.34-jgektnv gettext/0.22.5-hsxgafg
     krb5/1.20.1-n4kmebh libedit/3.1-20230828-nme7boz libxcrypt/4.4.35-7om46b5
     openssh/9.7p1-tk2b5yv
---- [WORKER MODE DETECTED] Work dir: ./data/leonardo/2025-10-06_16-36-36-938043 ---
+--- [WORKER MODE DETECTED] Work dir: ./data/leonardo/2025-10-06_18-50-17-090890 ---
 --- [WORKER] Environment loaded. Starting engine. ---
 --- [WORKER] Engine running in WORKER mode. ---
---- [WORKER] Working directory is: ./data/leonardo/2025-10-06_16-36-36-938043 ---
---- [WORKER] Allocating nodes provided by SLURM... ---
+--- [WORKER] Working directory is: ./data/leonardo/2025-10-06_18-50-17-090890 ---
+--- [WORKER] Allocating nodes provided by SLURM: lrdn[3439-3440,3442-3443] ---
 Split list: [100.0]
 Splits: [4]
 
 Running Benchmarks...
  Run 1:
-[DEBUG]: Node List is: ['lrdn3439', 'lrdn3440', 'lrdn3441', 'lrdn3443']
+[DEBUG]: Node List is: ['lrdn3439', 'lrdn3440', 'lrdn3441', 'lrdn3442']
 [DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
-[DEBUG]: SLURM command is: srun --export=ALL --exclusive --partition=boost_usr_prod --nodelist lrdn3439,lrdn3440,lrdn3441,lrdn3443 --cpu-bind=socket -n 4 -N 4 bash -c '
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn3439,lrdn3440,lrdn3441,lrdn3442 --cpu-bind=socket -n 4 -N 4 bash -c '
         echo "[BASH WRAPPER] Loading modules on node $(hostname)..." >&2
         module purge >&2
         module load openmpi >&2

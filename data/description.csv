@@ -13,3 +13,7 @@ app_mix,system,numnodes,allocation_mode,allocation_split,ppn,out_format,extra,pa
 4_node_baseline_in_8_node_alloc,leonardo,8,l,50:50,1,csv,4_node_baseline_in_8_node_alloc,./data/leonardo/2025-10-06_18-06-59-692942
 8_node_asymmetric_strong_aggressor,leonardo,8,i,25:75,1,csv,8_node_asymmetric_strong_aggressor,./data/leonardo/2025-10-06_18-10-41-155842
 baseline_run_in_4_node_alloc,leonardo,4,None,None,1,csv,baseline_run_in_4_node_alloc,./data/leonardo/2025-10-06_18-12-50-996069
+8_node_asymmetric_strong_aggressor,leonardo,8,i,25:75,1,csv,8_node_asymmetric_strong_aggressor,./data/leonardo/2025-10-06_18-49-51-057513
+baseline_run_in_4_node_alloc,leonardo,4,None,None,1,csv,baseline_run_in_4_node_alloc,./data/leonardo/2025-10-06_18-50-17-090890
+8_node_linear_isolation_test,leonardo,8,l,50:50,1,csv,8_node_linear_isolation_test,./data/leonardo/2025-10-06_18-50-29-328115
+8_node_multiple_aggressors,leonardo,8,i,50:25:25,1,csv,8_node_multiple_aggressors,./data/leonardo/2025-10-06_18-50-41-089784
