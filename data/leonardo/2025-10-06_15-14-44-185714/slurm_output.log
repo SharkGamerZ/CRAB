@@ -1,0 +1,58 @@
+Loading openmpi/4.1.6--gcc--12.2.0-cuda-12.2
+  Loading requirement: glibc/2.28--gcc--12.2.0-gi6mmti
+    gcc-runtime/12.2.0--gcc--12.2.0-dqfwf7y numactl/2.0.14--gcc--12.2.0-cxzp4ci
+    bzip2/1.0.8-ib3znej libiconv/1.17-nhc3mhm xz/5.4.6-xxxg42c
+    zlib-ng/2.1.6-jkgunjc libxml2/2.10.3-zbbe7lm ncurses/6.5-svfl57u
+    pigz/2.8-5bwzpml zstd/1.5.6-uq5yyux tar/1.34-jgektnv gettext/0.22.5-hsxgafg
+    krb5/1.20.1-n4kmebh libedit/3.1-20230828-nme7boz libxcrypt/4.4.35-7om46b5
+    openssh/9.7p1-tk2b5yv
+--- [WORKER MODE DETECTED] Work dir: ./data/leonardo/2025-10-06_15-14-44-185714 ---
+--- [WORKER] Environment loaded. Starting engine. ---
+--- [WORKER] Engine running in WORKER mode. ---
+--- [WORKER] Working directory is: ./data/leonardo/2025-10-06_15-14-44-185714 ---
+--- [WORKER] Allocating nodes provided by SLURM... ---
+Split list: [50.0, 25.0, 25.0]
+Split_a: 4
+Split_a: 2
+Splits: [4, 2, 2]
+
+Running Benchmarks...
+ Run 1:
+[DEBUG]: Node List is: ['lrdn3439', 'lrdn3443', 'lrdn3446', 'lrdn3451']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --exclusive --partition=boost_usr_prod --nodelist lrdn3439,lrdn3443,lrdn3446,lrdn3451 --cpu-bind=socket -n 4 -N 4 bash -c '
+        echo "[BASH WRAPPER] Loading modules on node $(hostname)..." >&2
+        module purge >&2
+        module load openmpi >&2
+        echo "[BASH WRAPPER] Modules loaded:" >&2
+        module list >&2
+        echo "[BASH WRAPPER] Executing command: /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/a2a_b -iter 1000000" >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/a2a_b -iter 1000000
+        '
+[DEBUG]: Node List is: ['lrdn3440', 'lrdn3444']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --exclusive --partition=boost_usr_prod --nodelist lrdn3440,lrdn3444 --cpu-bind=socket -n 2 -N 2 bash -c '
+        echo "[BASH WRAPPER] Loading modules on node $(hostname)..." >&2
+        module purge >&2
+        module load openmpi >&2
+        echo "[BASH WRAPPER] Modules loaded:" >&2
+        module list >&2
+        echo "[BASH WRAPPER] Executing command: /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/barrier -iter 5000000" >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/barrier -iter 5000000
+        '
+[DEBUG]: Node List is: ['lrdn3441', 'lrdn3445']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --exclusive --partition=boost_usr_prod --nodelist lrdn3441,lrdn3445 --cpu-bind=socket -n 2 -N 2 bash -c '
+        echo "[BASH WRAPPER] Loading modules on node $(hostname)..." >&2
+        module purge >&2
+        module load openmpi >&2
+        echo "[BASH WRAPPER] Modules loaded:" >&2
+        module list >&2
+        echo "[BASH WRAPPER] Executing command: /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/ring_nb -iter 2000000" >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/ring_nb -iter 2000000
+        '
+Ran 1000005 iterations. Measured 1000 iterations.
+
+Logging data...
+Dati per App 0 salvati in: ./data/leonardo/2025-10-06_15-14-44-185714/data_app_0.csv
+--- [WORKER] Engine run finished. ---
