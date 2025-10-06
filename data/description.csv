@@ -17,3 +17,4 @@ baseline_run_in_4_node_alloc,leonardo,4,None,None,1,csv,baseline_run_in_4_node_a
 baseline_run_in_4_node_alloc,leonardo,4,None,None,1,csv,baseline_run_in_4_node_alloc,./data/leonardo/2025-10-06_18-50-17-090890
 8_node_linear_isolation_test,leonardo,8,l,50:50,1,csv,8_node_linear_isolation_test,./data/leonardo/2025-10-06_18-50-29-328115
 8_node_multiple_aggressors,leonardo,8,i,50:25:25,1,csv,8_node_multiple_aggressors,./data/leonardo/2025-10-06_18-50-41-089784
+baseline_run_in_4_node_alloc,leonardo,4,None,None,1,csv,baseline_run_in_4_node_alloc,./data/leonardo/2025-10-06_19-42-33-448164
