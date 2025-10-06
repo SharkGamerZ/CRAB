@@ -7,3 +7,5 @@ stress_test_4nodi_MPI_job,leonardo,4,None,None,1,csv,stress_test_4nodi_MPI_job,.
 8_node_interleaved_long_run,leonardo,8,i,50:25:25,1,csv,8_node_interleaved_long_run,./data/leonardo/2025-10-06_15-09-34-881683
 8_node_interleaved_long_run,leonardo,8,i,50:25:25,1,csv,8_node_interleaved_long_run,./data/leonardo/2025-10-06_15-14-44-185714
 8_node_interleaved_long_run,leonardo,8,i,50:25:25,1,csv,8_node_interleaved_long_run,./data/leonardo/2025-10-06_15-24-57-944964
+8_node_allreduce_vs_a2a,leonardo,8,i,50:50,1,csv,8_node_allreduce_vs_a2a,./data/leonardo/2025-10-06_16-12-06-044219
+8_node_allreduce_vs_a2a,leonardo,8,i,50:50,1,csv,8_node_allreduce_vs_a2a,./data/leonardo/2025-10-06_16-13-54-811620

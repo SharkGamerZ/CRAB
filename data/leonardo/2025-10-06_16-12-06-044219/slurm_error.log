@@ -1,0 +1,20 @@
+[WORKER FATAL ERROR] cannot access local variable 'node_file_path' where it is not associated with a value
+Traceback (most recent call last):
+  File "/leonardo/home/userexternal/mmarcel3/crab/src/crab/core/engine.py", line 414, in _run_worker
+    spec_app.loader.exec_module(mod_app)
+  File "<frozen importlib._bootstrap_external>", line 936, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1073, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1130, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: '/leonardo/home/userexternal/mmarcel3/crab/wrappers/all_reduce.py'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/leonardo/home/userexternal/mmarcel3/crab/src/crab/cli/orchestrator.py", line 67, in run_from_cli
+    engine.run(
+  File "/leonardo/home/userexternal/mmarcel3/crab/src/crab/core/engine.py", line 240, in run
+    self._run_worker(config, environment, output_dir)
+  File "/leonardo/home/userexternal/mmarcel3/crab/src/crab/core/engine.py", line 523, in _run_worker
+    if os.path.exists(node_file_path):
+                      ^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'node_file_path' where it is not associated with a value
