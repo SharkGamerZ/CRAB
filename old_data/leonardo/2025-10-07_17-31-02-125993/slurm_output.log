@@ -1,0 +1,19 @@
+Loading openmpi/4.1.6--gcc--12.2.0-cuda-12.2
+  Loading requirement: glibc/2.28--gcc--12.2.0-gi6mmti
+    gcc-runtime/12.2.0--gcc--12.2.0-dqfwf7y numactl/2.0.14--gcc--12.2.0-cxzp4ci
+    bzip2/1.0.8-ib3znej libiconv/1.17-nhc3mhm xz/5.4.6-xxxg42c
+    zlib-ng/2.1.6-jkgunjc libxml2/2.10.3-zbbe7lm ncurses/6.5-svfl57u
+    pigz/2.8-5bwzpml zstd/1.5.6-uq5yyux tar/1.34-jgektnv gettext/0.22.5-hsxgafg
+    krb5/1.20.1-n4kmebh libedit/3.1-20230828-nme7boz libxcrypt/4.4.35-7om46b5
+    openssh/9.7p1-tk2b5yv
+--- [WORKER MODE DETECTED] Work dir: ./data/leonardo/2025-10-07_17-31-02-125993 ---
+--- [WORKER] Environment loaded. Starting engine. ---
+--- [WORKER] Engine running in WORKER mode. ---
+--- [WORKER] Working directory is: ./data/leonardo/2025-10-07_17-31-02-125993 ---
+--- [WORKER] Allocating nodes provided by SLURM: lrdn[0001,0010,0015,0031,0041,0046,0061,0070,0075,0099,0104,0112,0121,0129,0136,0151,0159,0165,0190,0196,0221,0226,0242,0249,0268,0271,0285,0287,0327,0336,0353,0361,0391,0411,0429,0469,0484,0495,0512,0540,0577,0589,0598,0606,0609,0633,0653,0669,0682,0716,0729,0758,0760,0794,0797,0808,0814,0836,0843,0872,0885,0887,0906,0924] ---
+Split list: [50.0, 50.0]
+Split_a: 32
+Splits: [32, 32]
+
+Running Benchmarks...
+ Run 1:
