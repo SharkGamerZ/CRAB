@@ -16,3 +16,4 @@ tesi_interference_V_ardc32n16MB_A_incast32n32MB_linear,leonardo,64,l,50:50,1,csv
 tesi_interference_V_ardc32n16MB_A_incast32n32MB_linear,leonardo,64,l,50:50,1,csv,tesi_interference_V_ardc32n16MB_A_incast32n32MB_linear,./data/leonardo/2025-10-08_12-23-52-764078
 tesi_interference_V_ardc32n16MB_A_incast32n32MB_interleaved,leonardo,64,i,50:50,1,csv,tesi_interference_V_ardc32n16MB_A_incast32n32MB_interleaved,./data/leonardo/2025-10-08_12-28-44-478702
 ,leonardo,32,l,100,1,csv,,./data/leonardo/2025-10-08_12-42-42-570653
+tesi_interference_V_ardc32n16MB_A_incast32n32MB_linear,leonardo,64,l,50:50,1,csv,tesi_interference_V_ardc32n16MB_A_incast32n32MB_linear,./data/leonardo/2025-10-08_12-47-05-957640
