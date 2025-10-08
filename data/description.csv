@@ -12,3 +12,6 @@ tesi_interference_V_ardc32n16MB_A_a2a32n32MB_interleaved,leonardo,64,i,50:50,1,c
 tesi_interference_V_ardc32n16MB_A_a2a32n32MB_interleaved,leonardo,48,i,66.67:33.33,1,csv,tesi_interference_V_ardc32n16MB_A_a2a32n32MB_interleaved,./data/leonardo/2025-10-08_11-40-35-645903
 tesi_interference_V_ardc32n16MB_A_a2a32n32MB_interleaved,leonardo,96,i,33.33:66.67,1,csv,tesi_interference_V_ardc32n16MB_A_a2a32n32MB_interleaved,./data/leonardo/2025-10-08_11-44-20-224166
 tesi_interference_V_ardc32n16MB_A_a2a32n32MB_interleaved,leonardo,64,l,50:50,1,csv,tesi_interference_V_ardc32n16MB_A_a2a32n32MB_interleaved,./data/leonardo/2025-10-08_12-02-52-702369
+tesi_interference_V_ardc32n16MB_A_incast32n32MB_linear,leonardo,64,l,50:50,1,csv,tesi_interference_V_ardc32n16MB_A_incast32n32MB_linear,./data/leonardo/2025-10-08_12-20-30-307956
+tesi_interference_V_ardc32n16MB_A_incast32n32MB_linear,leonardo,64,l,50:50,1,csv,tesi_interference_V_ardc32n16MB_A_incast32n32MB_linear,./data/leonardo/2025-10-08_12-23-52-764078
+tesi_interference_V_ardc32n16MB_A_incast32n32MB_interleaved,leonardo,64,i,50:50,1,csv,tesi_interference_V_ardc32n16MB_A_incast32n32MB_interleaved,./data/leonardo/2025-10-08_12-28-44-478702
