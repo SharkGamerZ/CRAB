@@ -1,0 +1,422 @@
+Loading openmpi/4.1.6--gcc--12.2.0-cuda-12.2
+  Loading requirement: glibc/2.28--gcc--12.2.0-gi6mmti
+    gcc-runtime/12.2.0--gcc--12.2.0-dqfwf7y numactl/2.0.14--gcc--12.2.0-cxzp4ci
+    bzip2/1.0.8-ib3znej libiconv/1.17-nhc3mhm xz/5.4.6-xxxg42c
+    zlib-ng/2.1.6-jkgunjc libxml2/2.10.3-zbbe7lm ncurses/6.5-svfl57u
+    pigz/2.8-5bwzpml zstd/1.5.6-uq5yyux tar/1.34-jgektnv gettext/0.22.5-hsxgafg
+    krb5/1.20.1-n4kmebh libedit/3.1-20230828-nme7boz libxcrypt/4.4.35-7om46b5
+    openssh/9.7p1-tk2b5yv
+--- [WORKER MODE DETECTED] Work dir: ./data/leonardo/2025-10-08_12-02-52-702369 ---
+--- [WORKER] Environment loaded. Starting engine. ---
+--- [WORKER] Engine running in WORKER mode. ---
+--- [WORKER] Working directory is: ./data/leonardo/2025-10-08_12-02-52-702369 ---
+--- [WORKER] Allocating nodes provided by SLURM: lrdn[0001,0009,0015,0031,0046,0048,0061,0070,0075,0101,0126,0130,0141,0152,0159,0165,0181,0196,0211,0232,0242,0268,0287,0305,0316,0344-0345,0368,0391,0399,0411,0444,0504,0512,0522,0534,0546,0550,0564,0590,0593,0611,0627,0636,0658,0669,0701,0715,0726,0730,0752,0760,0775,0786,0809,0833,0839,0852,0867,0872,0888,0901,0957,0959] ---
+Split list: [50.0, 50.0]
+Split_a: 32
+Splits: [32, 32]
+
+Running Benchmarks...
+ Run 1:
+[DEBUG]: Node List is: ['lrdn0504', 'lrdn0512', 'lrdn0522', 'lrdn0534', 'lrdn0546', 'lrdn0550', 'lrdn0564', 'lrdn0590', 'lrdn0593', 'lrdn0611', 'lrdn0627', 'lrdn0636', 'lrdn0658', 'lrdn0669', 'lrdn0701', 'lrdn0715', 'lrdn0726', 'lrdn0730', 'lrdn0752', 'lrdn0760', 'lrdn0775', 'lrdn0786', 'lrdn0809', 'lrdn0833', 'lrdn0839', 'lrdn0852', 'lrdn0867', 'lrdn0872', 'lrdn0888', 'lrdn0901', 'lrdn0957', 'lrdn0959']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0504,lrdn0512,lrdn0522,lrdn0534,lrdn0546,lrdn0550,lrdn0564,lrdn0590,lrdn0593,lrdn0611,lrdn0627,lrdn0636,lrdn0658,lrdn0669,lrdn0701,lrdn0715,lrdn0726,lrdn0730,lrdn0752,lrdn0760,lrdn0775,lrdn0786,lrdn0809,lrdn0833,lrdn0839,lrdn0852,lrdn0867,lrdn0872,lrdn0888,lrdn0901,lrdn0957,lrdn0959 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/a2a_b -msgsize 33554432 -iter 999999
+        '
+[DEBUG]: Node List is: ['lrdn0001', 'lrdn0009', 'lrdn0015', 'lrdn0031', 'lrdn0046', 'lrdn0048', 'lrdn0061', 'lrdn0070', 'lrdn0075', 'lrdn0101', 'lrdn0126', 'lrdn0130', 'lrdn0141', 'lrdn0152', 'lrdn0159', 'lrdn0165', 'lrdn0181', 'lrdn0196', 'lrdn0211', 'lrdn0232', 'lrdn0242', 'lrdn0268', 'lrdn0287', 'lrdn0305', 'lrdn0316', 'lrdn0344', 'lrdn0345', 'lrdn0368', 'lrdn0391', 'lrdn0399', 'lrdn0411', 'lrdn0444']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0001,lrdn0009,lrdn0015,lrdn0031,lrdn0046,lrdn0048,lrdn0061,lrdn0070,lrdn0075,lrdn0101,lrdn0126,lrdn0130,lrdn0141,lrdn0152,lrdn0159,lrdn0165,lrdn0181,lrdn0196,lrdn0211,lrdn0232,lrdn0242,lrdn0268,lrdn0287,lrdn0305,lrdn0316,lrdn0344,lrdn0345,lrdn0368,lrdn0391,lrdn0399,lrdn0411,lrdn0444 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/ardc_b -msgsize 16777216 -iter 50 -maxsamples 50
+        '
+[INFO] Application 1 was intentionally terminated (exit code: -9). This is expected.
+Ran 55 iterations. Measured 50 iterations.
+--- [INFO] Run 1 completata in 8.7456 secondi ---
+ Run 2:
+[DEBUG]: Node List is: ['lrdn0504', 'lrdn0512', 'lrdn0522', 'lrdn0534', 'lrdn0546', 'lrdn0550', 'lrdn0564', 'lrdn0590', 'lrdn0593', 'lrdn0611', 'lrdn0627', 'lrdn0636', 'lrdn0658', 'lrdn0669', 'lrdn0701', 'lrdn0715', 'lrdn0726', 'lrdn0730', 'lrdn0752', 'lrdn0760', 'lrdn0775', 'lrdn0786', 'lrdn0809', 'lrdn0833', 'lrdn0839', 'lrdn0852', 'lrdn0867', 'lrdn0872', 'lrdn0888', 'lrdn0901', 'lrdn0957', 'lrdn0959']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0504,lrdn0512,lrdn0522,lrdn0534,lrdn0546,lrdn0550,lrdn0564,lrdn0590,lrdn0593,lrdn0611,lrdn0627,lrdn0636,lrdn0658,lrdn0669,lrdn0701,lrdn0715,lrdn0726,lrdn0730,lrdn0752,lrdn0760,lrdn0775,lrdn0786,lrdn0809,lrdn0833,lrdn0839,lrdn0852,lrdn0867,lrdn0872,lrdn0888,lrdn0901,lrdn0957,lrdn0959 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/a2a_b -msgsize 33554432 -iter 999999
+        '
+[DEBUG]: Node List is: ['lrdn0001', 'lrdn0009', 'lrdn0015', 'lrdn0031', 'lrdn0046', 'lrdn0048', 'lrdn0061', 'lrdn0070', 'lrdn0075', 'lrdn0101', 'lrdn0126', 'lrdn0130', 'lrdn0141', 'lrdn0152', 'lrdn0159', 'lrdn0165', 'lrdn0181', 'lrdn0196', 'lrdn0211', 'lrdn0232', 'lrdn0242', 'lrdn0268', 'lrdn0287', 'lrdn0305', 'lrdn0316', 'lrdn0344', 'lrdn0345', 'lrdn0368', 'lrdn0391', 'lrdn0399', 'lrdn0411', 'lrdn0444']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0001,lrdn0009,lrdn0015,lrdn0031,lrdn0046,lrdn0048,lrdn0061,lrdn0070,lrdn0075,lrdn0101,lrdn0126,lrdn0130,lrdn0141,lrdn0152,lrdn0159,lrdn0165,lrdn0181,lrdn0196,lrdn0211,lrdn0232,lrdn0242,lrdn0268,lrdn0287,lrdn0305,lrdn0316,lrdn0344,lrdn0345,lrdn0368,lrdn0391,lrdn0399,lrdn0411,lrdn0444 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/ardc_b -msgsize 16777216 -iter 50 -maxsamples 50
+        '
+[INFO] Application 1 was intentionally terminated (exit code: -9). This is expected.
+Ran 55 iterations. Measured 50 iterations.
+--- [INFO] Run 2 completata in 8.4723 secondi ---
+ Run 3:
+[DEBUG]: Node List is: ['lrdn0504', 'lrdn0512', 'lrdn0522', 'lrdn0534', 'lrdn0546', 'lrdn0550', 'lrdn0564', 'lrdn0590', 'lrdn0593', 'lrdn0611', 'lrdn0627', 'lrdn0636', 'lrdn0658', 'lrdn0669', 'lrdn0701', 'lrdn0715', 'lrdn0726', 'lrdn0730', 'lrdn0752', 'lrdn0760', 'lrdn0775', 'lrdn0786', 'lrdn0809', 'lrdn0833', 'lrdn0839', 'lrdn0852', 'lrdn0867', 'lrdn0872', 'lrdn0888', 'lrdn0901', 'lrdn0957', 'lrdn0959']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0504,lrdn0512,lrdn0522,lrdn0534,lrdn0546,lrdn0550,lrdn0564,lrdn0590,lrdn0593,lrdn0611,lrdn0627,lrdn0636,lrdn0658,lrdn0669,lrdn0701,lrdn0715,lrdn0726,lrdn0730,lrdn0752,lrdn0760,lrdn0775,lrdn0786,lrdn0809,lrdn0833,lrdn0839,lrdn0852,lrdn0867,lrdn0872,lrdn0888,lrdn0901,lrdn0957,lrdn0959 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/a2a_b -msgsize 33554432 -iter 999999
+        '
+[DEBUG]: Node List is: ['lrdn0001', 'lrdn0009', 'lrdn0015', 'lrdn0031', 'lrdn0046', 'lrdn0048', 'lrdn0061', 'lrdn0070', 'lrdn0075', 'lrdn0101', 'lrdn0126', 'lrdn0130', 'lrdn0141', 'lrdn0152', 'lrdn0159', 'lrdn0165', 'lrdn0181', 'lrdn0196', 'lrdn0211', 'lrdn0232', 'lrdn0242', 'lrdn0268', 'lrdn0287', 'lrdn0305', 'lrdn0316', 'lrdn0344', 'lrdn0345', 'lrdn0368', 'lrdn0391', 'lrdn0399', 'lrdn0411', 'lrdn0444']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0001,lrdn0009,lrdn0015,lrdn0031,lrdn0046,lrdn0048,lrdn0061,lrdn0070,lrdn0075,lrdn0101,lrdn0126,lrdn0130,lrdn0141,lrdn0152,lrdn0159,lrdn0165,lrdn0181,lrdn0196,lrdn0211,lrdn0232,lrdn0242,lrdn0268,lrdn0287,lrdn0305,lrdn0316,lrdn0344,lrdn0345,lrdn0368,lrdn0391,lrdn0399,lrdn0411,lrdn0444 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/ardc_b -msgsize 16777216 -iter 50 -maxsamples 50
+        '
+[INFO] Application 1 was intentionally terminated (exit code: -9). This is expected.
+Ran 55 iterations. Measured 50 iterations.
+--- [INFO] Run 3 completata in 8.6236 secondi ---
+ Run 4:
+[DEBUG]: Node List is: ['lrdn0504', 'lrdn0512', 'lrdn0522', 'lrdn0534', 'lrdn0546', 'lrdn0550', 'lrdn0564', 'lrdn0590', 'lrdn0593', 'lrdn0611', 'lrdn0627', 'lrdn0636', 'lrdn0658', 'lrdn0669', 'lrdn0701', 'lrdn0715', 'lrdn0726', 'lrdn0730', 'lrdn0752', 'lrdn0760', 'lrdn0775', 'lrdn0786', 'lrdn0809', 'lrdn0833', 'lrdn0839', 'lrdn0852', 'lrdn0867', 'lrdn0872', 'lrdn0888', 'lrdn0901', 'lrdn0957', 'lrdn0959']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0504,lrdn0512,lrdn0522,lrdn0534,lrdn0546,lrdn0550,lrdn0564,lrdn0590,lrdn0593,lrdn0611,lrdn0627,lrdn0636,lrdn0658,lrdn0669,lrdn0701,lrdn0715,lrdn0726,lrdn0730,lrdn0752,lrdn0760,lrdn0775,lrdn0786,lrdn0809,lrdn0833,lrdn0839,lrdn0852,lrdn0867,lrdn0872,lrdn0888,lrdn0901,lrdn0957,lrdn0959 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/a2a_b -msgsize 33554432 -iter 999999
+        '
+[DEBUG]: Node List is: ['lrdn0001', 'lrdn0009', 'lrdn0015', 'lrdn0031', 'lrdn0046', 'lrdn0048', 'lrdn0061', 'lrdn0070', 'lrdn0075', 'lrdn0101', 'lrdn0126', 'lrdn0130', 'lrdn0141', 'lrdn0152', 'lrdn0159', 'lrdn0165', 'lrdn0181', 'lrdn0196', 'lrdn0211', 'lrdn0232', 'lrdn0242', 'lrdn0268', 'lrdn0287', 'lrdn0305', 'lrdn0316', 'lrdn0344', 'lrdn0345', 'lrdn0368', 'lrdn0391', 'lrdn0399', 'lrdn0411', 'lrdn0444']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0001,lrdn0009,lrdn0015,lrdn0031,lrdn0046,lrdn0048,lrdn0061,lrdn0070,lrdn0075,lrdn0101,lrdn0126,lrdn0130,lrdn0141,lrdn0152,lrdn0159,lrdn0165,lrdn0181,lrdn0196,lrdn0211,lrdn0232,lrdn0242,lrdn0268,lrdn0287,lrdn0305,lrdn0316,lrdn0344,lrdn0345,lrdn0368,lrdn0391,lrdn0399,lrdn0411,lrdn0444 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/ardc_b -msgsize 16777216 -iter 50 -maxsamples 50
+        '
+[INFO] Application 1 was intentionally terminated (exit code: -9). This is expected.
+Ran 55 iterations. Measured 50 iterations.
+--- [INFO] Run 4 completata in 8.4659 secondi ---
+ Run 5:
+[DEBUG]: Node List is: ['lrdn0504', 'lrdn0512', 'lrdn0522', 'lrdn0534', 'lrdn0546', 'lrdn0550', 'lrdn0564', 'lrdn0590', 'lrdn0593', 'lrdn0611', 'lrdn0627', 'lrdn0636', 'lrdn0658', 'lrdn0669', 'lrdn0701', 'lrdn0715', 'lrdn0726', 'lrdn0730', 'lrdn0752', 'lrdn0760', 'lrdn0775', 'lrdn0786', 'lrdn0809', 'lrdn0833', 'lrdn0839', 'lrdn0852', 'lrdn0867', 'lrdn0872', 'lrdn0888', 'lrdn0901', 'lrdn0957', 'lrdn0959']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0504,lrdn0512,lrdn0522,lrdn0534,lrdn0546,lrdn0550,lrdn0564,lrdn0590,lrdn0593,lrdn0611,lrdn0627,lrdn0636,lrdn0658,lrdn0669,lrdn0701,lrdn0715,lrdn0726,lrdn0730,lrdn0752,lrdn0760,lrdn0775,lrdn0786,lrdn0809,lrdn0833,lrdn0839,lrdn0852,lrdn0867,lrdn0872,lrdn0888,lrdn0901,lrdn0957,lrdn0959 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/a2a_b -msgsize 33554432 -iter 999999
+        '
+[DEBUG]: Node List is: ['lrdn0001', 'lrdn0009', 'lrdn0015', 'lrdn0031', 'lrdn0046', 'lrdn0048', 'lrdn0061', 'lrdn0070', 'lrdn0075', 'lrdn0101', 'lrdn0126', 'lrdn0130', 'lrdn0141', 'lrdn0152', 'lrdn0159', 'lrdn0165', 'lrdn0181', 'lrdn0196', 'lrdn0211', 'lrdn0232', 'lrdn0242', 'lrdn0268', 'lrdn0287', 'lrdn0305', 'lrdn0316', 'lrdn0344', 'lrdn0345', 'lrdn0368', 'lrdn0391', 'lrdn0399', 'lrdn0411', 'lrdn0444']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0001,lrdn0009,lrdn0015,lrdn0031,lrdn0046,lrdn0048,lrdn0061,lrdn0070,lrdn0075,lrdn0101,lrdn0126,lrdn0130,lrdn0141,lrdn0152,lrdn0159,lrdn0165,lrdn0181,lrdn0196,lrdn0211,lrdn0232,lrdn0242,lrdn0268,lrdn0287,lrdn0305,lrdn0316,lrdn0344,lrdn0345,lrdn0368,lrdn0391,lrdn0399,lrdn0411,lrdn0444 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/ardc_b -msgsize 16777216 -iter 50 -maxsamples 50
+        '
+[INFO] Application 1 was intentionally terminated (exit code: -9). This is expected.
+Ran 55 iterations. Measured 50 iterations.
+--- [INFO] Run 5 completata in 8.6115 secondi ---
+ Run 6:
+[DEBUG]: Node List is: ['lrdn0504', 'lrdn0512', 'lrdn0522', 'lrdn0534', 'lrdn0546', 'lrdn0550', 'lrdn0564', 'lrdn0590', 'lrdn0593', 'lrdn0611', 'lrdn0627', 'lrdn0636', 'lrdn0658', 'lrdn0669', 'lrdn0701', 'lrdn0715', 'lrdn0726', 'lrdn0730', 'lrdn0752', 'lrdn0760', 'lrdn0775', 'lrdn0786', 'lrdn0809', 'lrdn0833', 'lrdn0839', 'lrdn0852', 'lrdn0867', 'lrdn0872', 'lrdn0888', 'lrdn0901', 'lrdn0957', 'lrdn0959']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0504,lrdn0512,lrdn0522,lrdn0534,lrdn0546,lrdn0550,lrdn0564,lrdn0590,lrdn0593,lrdn0611,lrdn0627,lrdn0636,lrdn0658,lrdn0669,lrdn0701,lrdn0715,lrdn0726,lrdn0730,lrdn0752,lrdn0760,lrdn0775,lrdn0786,lrdn0809,lrdn0833,lrdn0839,lrdn0852,lrdn0867,lrdn0872,lrdn0888,lrdn0901,lrdn0957,lrdn0959 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/a2a_b -msgsize 33554432 -iter 999999
+        '
+[DEBUG]: Node List is: ['lrdn0001', 'lrdn0009', 'lrdn0015', 'lrdn0031', 'lrdn0046', 'lrdn0048', 'lrdn0061', 'lrdn0070', 'lrdn0075', 'lrdn0101', 'lrdn0126', 'lrdn0130', 'lrdn0141', 'lrdn0152', 'lrdn0159', 'lrdn0165', 'lrdn0181', 'lrdn0196', 'lrdn0211', 'lrdn0232', 'lrdn0242', 'lrdn0268', 'lrdn0287', 'lrdn0305', 'lrdn0316', 'lrdn0344', 'lrdn0345', 'lrdn0368', 'lrdn0391', 'lrdn0399', 'lrdn0411', 'lrdn0444']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0001,lrdn0009,lrdn0015,lrdn0031,lrdn0046,lrdn0048,lrdn0061,lrdn0070,lrdn0075,lrdn0101,lrdn0126,lrdn0130,lrdn0141,lrdn0152,lrdn0159,lrdn0165,lrdn0181,lrdn0196,lrdn0211,lrdn0232,lrdn0242,lrdn0268,lrdn0287,lrdn0305,lrdn0316,lrdn0344,lrdn0345,lrdn0368,lrdn0391,lrdn0399,lrdn0411,lrdn0444 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/ardc_b -msgsize 16777216 -iter 50 -maxsamples 50
+        '
+[INFO] Application 1 was intentionally terminated (exit code: -9). This is expected.
+Ran 55 iterations. Measured 50 iterations.
+--- [INFO] Run 6 completata in 9.0075 secondi ---
+ Run 7:
+[DEBUG]: Node List is: ['lrdn0504', 'lrdn0512', 'lrdn0522', 'lrdn0534', 'lrdn0546', 'lrdn0550', 'lrdn0564', 'lrdn0590', 'lrdn0593', 'lrdn0611', 'lrdn0627', 'lrdn0636', 'lrdn0658', 'lrdn0669', 'lrdn0701', 'lrdn0715', 'lrdn0726', 'lrdn0730', 'lrdn0752', 'lrdn0760', 'lrdn0775', 'lrdn0786', 'lrdn0809', 'lrdn0833', 'lrdn0839', 'lrdn0852', 'lrdn0867', 'lrdn0872', 'lrdn0888', 'lrdn0901', 'lrdn0957', 'lrdn0959']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0504,lrdn0512,lrdn0522,lrdn0534,lrdn0546,lrdn0550,lrdn0564,lrdn0590,lrdn0593,lrdn0611,lrdn0627,lrdn0636,lrdn0658,lrdn0669,lrdn0701,lrdn0715,lrdn0726,lrdn0730,lrdn0752,lrdn0760,lrdn0775,lrdn0786,lrdn0809,lrdn0833,lrdn0839,lrdn0852,lrdn0867,lrdn0872,lrdn0888,lrdn0901,lrdn0957,lrdn0959 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/a2a_b -msgsize 33554432 -iter 999999
+        '
+[DEBUG]: Node List is: ['lrdn0001', 'lrdn0009', 'lrdn0015', 'lrdn0031', 'lrdn0046', 'lrdn0048', 'lrdn0061', 'lrdn0070', 'lrdn0075', 'lrdn0101', 'lrdn0126', 'lrdn0130', 'lrdn0141', 'lrdn0152', 'lrdn0159', 'lrdn0165', 'lrdn0181', 'lrdn0196', 'lrdn0211', 'lrdn0232', 'lrdn0242', 'lrdn0268', 'lrdn0287', 'lrdn0305', 'lrdn0316', 'lrdn0344', 'lrdn0345', 'lrdn0368', 'lrdn0391', 'lrdn0399', 'lrdn0411', 'lrdn0444']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0001,lrdn0009,lrdn0015,lrdn0031,lrdn0046,lrdn0048,lrdn0061,lrdn0070,lrdn0075,lrdn0101,lrdn0126,lrdn0130,lrdn0141,lrdn0152,lrdn0159,lrdn0165,lrdn0181,lrdn0196,lrdn0211,lrdn0232,lrdn0242,lrdn0268,lrdn0287,lrdn0305,lrdn0316,lrdn0344,lrdn0345,lrdn0368,lrdn0391,lrdn0399,lrdn0411,lrdn0444 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/ardc_b -msgsize 16777216 -iter 50 -maxsamples 50
+        '
+[INFO] Application 1 was intentionally terminated (exit code: -9). This is expected.
+Ran 55 iterations. Measured 50 iterations.
+--- [INFO] Run 7 completata in 8.4466 secondi ---
+ Run 8:
+[DEBUG]: Node List is: ['lrdn0504', 'lrdn0512', 'lrdn0522', 'lrdn0534', 'lrdn0546', 'lrdn0550', 'lrdn0564', 'lrdn0590', 'lrdn0593', 'lrdn0611', 'lrdn0627', 'lrdn0636', 'lrdn0658', 'lrdn0669', 'lrdn0701', 'lrdn0715', 'lrdn0726', 'lrdn0730', 'lrdn0752', 'lrdn0760', 'lrdn0775', 'lrdn0786', 'lrdn0809', 'lrdn0833', 'lrdn0839', 'lrdn0852', 'lrdn0867', 'lrdn0872', 'lrdn0888', 'lrdn0901', 'lrdn0957', 'lrdn0959']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0504,lrdn0512,lrdn0522,lrdn0534,lrdn0546,lrdn0550,lrdn0564,lrdn0590,lrdn0593,lrdn0611,lrdn0627,lrdn0636,lrdn0658,lrdn0669,lrdn0701,lrdn0715,lrdn0726,lrdn0730,lrdn0752,lrdn0760,lrdn0775,lrdn0786,lrdn0809,lrdn0833,lrdn0839,lrdn0852,lrdn0867,lrdn0872,lrdn0888,lrdn0901,lrdn0957,lrdn0959 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/a2a_b -msgsize 33554432 -iter 999999
+        '
+[DEBUG]: Node List is: ['lrdn0001', 'lrdn0009', 'lrdn0015', 'lrdn0031', 'lrdn0046', 'lrdn0048', 'lrdn0061', 'lrdn0070', 'lrdn0075', 'lrdn0101', 'lrdn0126', 'lrdn0130', 'lrdn0141', 'lrdn0152', 'lrdn0159', 'lrdn0165', 'lrdn0181', 'lrdn0196', 'lrdn0211', 'lrdn0232', 'lrdn0242', 'lrdn0268', 'lrdn0287', 'lrdn0305', 'lrdn0316', 'lrdn0344', 'lrdn0345', 'lrdn0368', 'lrdn0391', 'lrdn0399', 'lrdn0411', 'lrdn0444']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0001,lrdn0009,lrdn0015,lrdn0031,lrdn0046,lrdn0048,lrdn0061,lrdn0070,lrdn0075,lrdn0101,lrdn0126,lrdn0130,lrdn0141,lrdn0152,lrdn0159,lrdn0165,lrdn0181,lrdn0196,lrdn0211,lrdn0232,lrdn0242,lrdn0268,lrdn0287,lrdn0305,lrdn0316,lrdn0344,lrdn0345,lrdn0368,lrdn0391,lrdn0399,lrdn0411,lrdn0444 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/ardc_b -msgsize 16777216 -iter 50 -maxsamples 50
+        '
+[INFO] Application 1 was intentionally terminated (exit code: -9). This is expected.
+Ran 55 iterations. Measured 50 iterations.
+--- [INFO] Run 8 completata in 8.4628 secondi ---
+ Run 9:
+[DEBUG]: Node List is: ['lrdn0504', 'lrdn0512', 'lrdn0522', 'lrdn0534', 'lrdn0546', 'lrdn0550', 'lrdn0564', 'lrdn0590', 'lrdn0593', 'lrdn0611', 'lrdn0627', 'lrdn0636', 'lrdn0658', 'lrdn0669', 'lrdn0701', 'lrdn0715', 'lrdn0726', 'lrdn0730', 'lrdn0752', 'lrdn0760', 'lrdn0775', 'lrdn0786', 'lrdn0809', 'lrdn0833', 'lrdn0839', 'lrdn0852', 'lrdn0867', 'lrdn0872', 'lrdn0888', 'lrdn0901', 'lrdn0957', 'lrdn0959']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0504,lrdn0512,lrdn0522,lrdn0534,lrdn0546,lrdn0550,lrdn0564,lrdn0590,lrdn0593,lrdn0611,lrdn0627,lrdn0636,lrdn0658,lrdn0669,lrdn0701,lrdn0715,lrdn0726,lrdn0730,lrdn0752,lrdn0760,lrdn0775,lrdn0786,lrdn0809,lrdn0833,lrdn0839,lrdn0852,lrdn0867,lrdn0872,lrdn0888,lrdn0901,lrdn0957,lrdn0959 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/a2a_b -msgsize 33554432 -iter 999999
+        '
+[DEBUG]: Node List is: ['lrdn0001', 'lrdn0009', 'lrdn0015', 'lrdn0031', 'lrdn0046', 'lrdn0048', 'lrdn0061', 'lrdn0070', 'lrdn0075', 'lrdn0101', 'lrdn0126', 'lrdn0130', 'lrdn0141', 'lrdn0152', 'lrdn0159', 'lrdn0165', 'lrdn0181', 'lrdn0196', 'lrdn0211', 'lrdn0232', 'lrdn0242', 'lrdn0268', 'lrdn0287', 'lrdn0305', 'lrdn0316', 'lrdn0344', 'lrdn0345', 'lrdn0368', 'lrdn0391', 'lrdn0399', 'lrdn0411', 'lrdn0444']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0001,lrdn0009,lrdn0015,lrdn0031,lrdn0046,lrdn0048,lrdn0061,lrdn0070,lrdn0075,lrdn0101,lrdn0126,lrdn0130,lrdn0141,lrdn0152,lrdn0159,lrdn0165,lrdn0181,lrdn0196,lrdn0211,lrdn0232,lrdn0242,lrdn0268,lrdn0287,lrdn0305,lrdn0316,lrdn0344,lrdn0345,lrdn0368,lrdn0391,lrdn0399,lrdn0411,lrdn0444 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/ardc_b -msgsize 16777216 -iter 50 -maxsamples 50
+        '
+[INFO] Application 1 was intentionally terminated (exit code: -9). This is expected.
+Ran 55 iterations. Measured 50 iterations.
+--- [INFO] Run 9 completata in 8.4718 secondi ---
+ Run 10:
+[DEBUG]: Node List is: ['lrdn0504', 'lrdn0512', 'lrdn0522', 'lrdn0534', 'lrdn0546', 'lrdn0550', 'lrdn0564', 'lrdn0590', 'lrdn0593', 'lrdn0611', 'lrdn0627', 'lrdn0636', 'lrdn0658', 'lrdn0669', 'lrdn0701', 'lrdn0715', 'lrdn0726', 'lrdn0730', 'lrdn0752', 'lrdn0760', 'lrdn0775', 'lrdn0786', 'lrdn0809', 'lrdn0833', 'lrdn0839', 'lrdn0852', 'lrdn0867', 'lrdn0872', 'lrdn0888', 'lrdn0901', 'lrdn0957', 'lrdn0959']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0504,lrdn0512,lrdn0522,lrdn0534,lrdn0546,lrdn0550,lrdn0564,lrdn0590,lrdn0593,lrdn0611,lrdn0627,lrdn0636,lrdn0658,lrdn0669,lrdn0701,lrdn0715,lrdn0726,lrdn0730,lrdn0752,lrdn0760,lrdn0775,lrdn0786,lrdn0809,lrdn0833,lrdn0839,lrdn0852,lrdn0867,lrdn0872,lrdn0888,lrdn0901,lrdn0957,lrdn0959 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/a2a_b -msgsize 33554432 -iter 999999
+        '
+[DEBUG]: Node List is: ['lrdn0001', 'lrdn0009', 'lrdn0015', 'lrdn0031', 'lrdn0046', 'lrdn0048', 'lrdn0061', 'lrdn0070', 'lrdn0075', 'lrdn0101', 'lrdn0126', 'lrdn0130', 'lrdn0141', 'lrdn0152', 'lrdn0159', 'lrdn0165', 'lrdn0181', 'lrdn0196', 'lrdn0211', 'lrdn0232', 'lrdn0242', 'lrdn0268', 'lrdn0287', 'lrdn0305', 'lrdn0316', 'lrdn0344', 'lrdn0345', 'lrdn0368', 'lrdn0391', 'lrdn0399', 'lrdn0411', 'lrdn0444']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0001,lrdn0009,lrdn0015,lrdn0031,lrdn0046,lrdn0048,lrdn0061,lrdn0070,lrdn0075,lrdn0101,lrdn0126,lrdn0130,lrdn0141,lrdn0152,lrdn0159,lrdn0165,lrdn0181,lrdn0196,lrdn0211,lrdn0232,lrdn0242,lrdn0268,lrdn0287,lrdn0305,lrdn0316,lrdn0344,lrdn0345,lrdn0368,lrdn0391,lrdn0399,lrdn0411,lrdn0444 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/ardc_b -msgsize 16777216 -iter 50 -maxsamples 50
+        '
+[INFO] Application 1 was intentionally terminated (exit code: -9). This is expected.
+Ran 55 iterations. Measured 50 iterations.
+--- [INFO] Run 10 completata in 8.7063 secondi ---
+ Run 11:
+[DEBUG]: Node List is: ['lrdn0504', 'lrdn0512', 'lrdn0522', 'lrdn0534', 'lrdn0546', 'lrdn0550', 'lrdn0564', 'lrdn0590', 'lrdn0593', 'lrdn0611', 'lrdn0627', 'lrdn0636', 'lrdn0658', 'lrdn0669', 'lrdn0701', 'lrdn0715', 'lrdn0726', 'lrdn0730', 'lrdn0752', 'lrdn0760', 'lrdn0775', 'lrdn0786', 'lrdn0809', 'lrdn0833', 'lrdn0839', 'lrdn0852', 'lrdn0867', 'lrdn0872', 'lrdn0888', 'lrdn0901', 'lrdn0957', 'lrdn0959']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0504,lrdn0512,lrdn0522,lrdn0534,lrdn0546,lrdn0550,lrdn0564,lrdn0590,lrdn0593,lrdn0611,lrdn0627,lrdn0636,lrdn0658,lrdn0669,lrdn0701,lrdn0715,lrdn0726,lrdn0730,lrdn0752,lrdn0760,lrdn0775,lrdn0786,lrdn0809,lrdn0833,lrdn0839,lrdn0852,lrdn0867,lrdn0872,lrdn0888,lrdn0901,lrdn0957,lrdn0959 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/a2a_b -msgsize 33554432 -iter 999999
+        '
+[DEBUG]: Node List is: ['lrdn0001', 'lrdn0009', 'lrdn0015', 'lrdn0031', 'lrdn0046', 'lrdn0048', 'lrdn0061', 'lrdn0070', 'lrdn0075', 'lrdn0101', 'lrdn0126', 'lrdn0130', 'lrdn0141', 'lrdn0152', 'lrdn0159', 'lrdn0165', 'lrdn0181', 'lrdn0196', 'lrdn0211', 'lrdn0232', 'lrdn0242', 'lrdn0268', 'lrdn0287', 'lrdn0305', 'lrdn0316', 'lrdn0344', 'lrdn0345', 'lrdn0368', 'lrdn0391', 'lrdn0399', 'lrdn0411', 'lrdn0444']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0001,lrdn0009,lrdn0015,lrdn0031,lrdn0046,lrdn0048,lrdn0061,lrdn0070,lrdn0075,lrdn0101,lrdn0126,lrdn0130,lrdn0141,lrdn0152,lrdn0159,lrdn0165,lrdn0181,lrdn0196,lrdn0211,lrdn0232,lrdn0242,lrdn0268,lrdn0287,lrdn0305,lrdn0316,lrdn0344,lrdn0345,lrdn0368,lrdn0391,lrdn0399,lrdn0411,lrdn0444 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/ardc_b -msgsize 16777216 -iter 50 -maxsamples 50
+        '
+[INFO] Application 1 was intentionally terminated (exit code: -9). This is expected.
+Ran 55 iterations. Measured 50 iterations.
+--- [INFO] Run 11 completata in 8.4891 secondi ---
+ Run 12:
+[DEBUG]: Node List is: ['lrdn0504', 'lrdn0512', 'lrdn0522', 'lrdn0534', 'lrdn0546', 'lrdn0550', 'lrdn0564', 'lrdn0590', 'lrdn0593', 'lrdn0611', 'lrdn0627', 'lrdn0636', 'lrdn0658', 'lrdn0669', 'lrdn0701', 'lrdn0715', 'lrdn0726', 'lrdn0730', 'lrdn0752', 'lrdn0760', 'lrdn0775', 'lrdn0786', 'lrdn0809', 'lrdn0833', 'lrdn0839', 'lrdn0852', 'lrdn0867', 'lrdn0872', 'lrdn0888', 'lrdn0901', 'lrdn0957', 'lrdn0959']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0504,lrdn0512,lrdn0522,lrdn0534,lrdn0546,lrdn0550,lrdn0564,lrdn0590,lrdn0593,lrdn0611,lrdn0627,lrdn0636,lrdn0658,lrdn0669,lrdn0701,lrdn0715,lrdn0726,lrdn0730,lrdn0752,lrdn0760,lrdn0775,lrdn0786,lrdn0809,lrdn0833,lrdn0839,lrdn0852,lrdn0867,lrdn0872,lrdn0888,lrdn0901,lrdn0957,lrdn0959 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/a2a_b -msgsize 33554432 -iter 999999
+        '
+[DEBUG]: Node List is: ['lrdn0001', 'lrdn0009', 'lrdn0015', 'lrdn0031', 'lrdn0046', 'lrdn0048', 'lrdn0061', 'lrdn0070', 'lrdn0075', 'lrdn0101', 'lrdn0126', 'lrdn0130', 'lrdn0141', 'lrdn0152', 'lrdn0159', 'lrdn0165', 'lrdn0181', 'lrdn0196', 'lrdn0211', 'lrdn0232', 'lrdn0242', 'lrdn0268', 'lrdn0287', 'lrdn0305', 'lrdn0316', 'lrdn0344', 'lrdn0345', 'lrdn0368', 'lrdn0391', 'lrdn0399', 'lrdn0411', 'lrdn0444']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0001,lrdn0009,lrdn0015,lrdn0031,lrdn0046,lrdn0048,lrdn0061,lrdn0070,lrdn0075,lrdn0101,lrdn0126,lrdn0130,lrdn0141,lrdn0152,lrdn0159,lrdn0165,lrdn0181,lrdn0196,lrdn0211,lrdn0232,lrdn0242,lrdn0268,lrdn0287,lrdn0305,lrdn0316,lrdn0344,lrdn0345,lrdn0368,lrdn0391,lrdn0399,lrdn0411,lrdn0444 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/ardc_b -msgsize 16777216 -iter 50 -maxsamples 50
+        '
+[INFO] Application 1 was intentionally terminated (exit code: -9). This is expected.
+Ran 55 iterations. Measured 50 iterations.
+--- [INFO] Run 12 completata in 8.5030 secondi ---
+ Run 13:
+[DEBUG]: Node List is: ['lrdn0504', 'lrdn0512', 'lrdn0522', 'lrdn0534', 'lrdn0546', 'lrdn0550', 'lrdn0564', 'lrdn0590', 'lrdn0593', 'lrdn0611', 'lrdn0627', 'lrdn0636', 'lrdn0658', 'lrdn0669', 'lrdn0701', 'lrdn0715', 'lrdn0726', 'lrdn0730', 'lrdn0752', 'lrdn0760', 'lrdn0775', 'lrdn0786', 'lrdn0809', 'lrdn0833', 'lrdn0839', 'lrdn0852', 'lrdn0867', 'lrdn0872', 'lrdn0888', 'lrdn0901', 'lrdn0957', 'lrdn0959']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0504,lrdn0512,lrdn0522,lrdn0534,lrdn0546,lrdn0550,lrdn0564,lrdn0590,lrdn0593,lrdn0611,lrdn0627,lrdn0636,lrdn0658,lrdn0669,lrdn0701,lrdn0715,lrdn0726,lrdn0730,lrdn0752,lrdn0760,lrdn0775,lrdn0786,lrdn0809,lrdn0833,lrdn0839,lrdn0852,lrdn0867,lrdn0872,lrdn0888,lrdn0901,lrdn0957,lrdn0959 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/a2a_b -msgsize 33554432 -iter 999999
+        '
+[DEBUG]: Node List is: ['lrdn0001', 'lrdn0009', 'lrdn0015', 'lrdn0031', 'lrdn0046', 'lrdn0048', 'lrdn0061', 'lrdn0070', 'lrdn0075', 'lrdn0101', 'lrdn0126', 'lrdn0130', 'lrdn0141', 'lrdn0152', 'lrdn0159', 'lrdn0165', 'lrdn0181', 'lrdn0196', 'lrdn0211', 'lrdn0232', 'lrdn0242', 'lrdn0268', 'lrdn0287', 'lrdn0305', 'lrdn0316', 'lrdn0344', 'lrdn0345', 'lrdn0368', 'lrdn0391', 'lrdn0399', 'lrdn0411', 'lrdn0444']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0001,lrdn0009,lrdn0015,lrdn0031,lrdn0046,lrdn0048,lrdn0061,lrdn0070,lrdn0075,lrdn0101,lrdn0126,lrdn0130,lrdn0141,lrdn0152,lrdn0159,lrdn0165,lrdn0181,lrdn0196,lrdn0211,lrdn0232,lrdn0242,lrdn0268,lrdn0287,lrdn0305,lrdn0316,lrdn0344,lrdn0345,lrdn0368,lrdn0391,lrdn0399,lrdn0411,lrdn0444 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/ardc_b -msgsize 16777216 -iter 50 -maxsamples 50
+        '
+[INFO] Application 1 was intentionally terminated (exit code: -9). This is expected.
+Ran 55 iterations. Measured 50 iterations.
+--- [INFO] Run 13 completata in 8.4903 secondi ---
+ Run 14:
+[DEBUG]: Node List is: ['lrdn0504', 'lrdn0512', 'lrdn0522', 'lrdn0534', 'lrdn0546', 'lrdn0550', 'lrdn0564', 'lrdn0590', 'lrdn0593', 'lrdn0611', 'lrdn0627', 'lrdn0636', 'lrdn0658', 'lrdn0669', 'lrdn0701', 'lrdn0715', 'lrdn0726', 'lrdn0730', 'lrdn0752', 'lrdn0760', 'lrdn0775', 'lrdn0786', 'lrdn0809', 'lrdn0833', 'lrdn0839', 'lrdn0852', 'lrdn0867', 'lrdn0872', 'lrdn0888', 'lrdn0901', 'lrdn0957', 'lrdn0959']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0504,lrdn0512,lrdn0522,lrdn0534,lrdn0546,lrdn0550,lrdn0564,lrdn0590,lrdn0593,lrdn0611,lrdn0627,lrdn0636,lrdn0658,lrdn0669,lrdn0701,lrdn0715,lrdn0726,lrdn0730,lrdn0752,lrdn0760,lrdn0775,lrdn0786,lrdn0809,lrdn0833,lrdn0839,lrdn0852,lrdn0867,lrdn0872,lrdn0888,lrdn0901,lrdn0957,lrdn0959 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/a2a_b -msgsize 33554432 -iter 999999
+        '
+[DEBUG]: Node List is: ['lrdn0001', 'lrdn0009', 'lrdn0015', 'lrdn0031', 'lrdn0046', 'lrdn0048', 'lrdn0061', 'lrdn0070', 'lrdn0075', 'lrdn0101', 'lrdn0126', 'lrdn0130', 'lrdn0141', 'lrdn0152', 'lrdn0159', 'lrdn0165', 'lrdn0181', 'lrdn0196', 'lrdn0211', 'lrdn0232', 'lrdn0242', 'lrdn0268', 'lrdn0287', 'lrdn0305', 'lrdn0316', 'lrdn0344', 'lrdn0345', 'lrdn0368', 'lrdn0391', 'lrdn0399', 'lrdn0411', 'lrdn0444']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0001,lrdn0009,lrdn0015,lrdn0031,lrdn0046,lrdn0048,lrdn0061,lrdn0070,lrdn0075,lrdn0101,lrdn0126,lrdn0130,lrdn0141,lrdn0152,lrdn0159,lrdn0165,lrdn0181,lrdn0196,lrdn0211,lrdn0232,lrdn0242,lrdn0268,lrdn0287,lrdn0305,lrdn0316,lrdn0344,lrdn0345,lrdn0368,lrdn0391,lrdn0399,lrdn0411,lrdn0444 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/ardc_b -msgsize 16777216 -iter 50 -maxsamples 50
+        '
+[INFO] Application 1 was intentionally terminated (exit code: -9). This is expected.
+Ran 55 iterations. Measured 50 iterations.
+--- [INFO] Run 14 completata in 8.7315 secondi ---
+ Run 15:
+[DEBUG]: Node List is: ['lrdn0504', 'lrdn0512', 'lrdn0522', 'lrdn0534', 'lrdn0546', 'lrdn0550', 'lrdn0564', 'lrdn0590', 'lrdn0593', 'lrdn0611', 'lrdn0627', 'lrdn0636', 'lrdn0658', 'lrdn0669', 'lrdn0701', 'lrdn0715', 'lrdn0726', 'lrdn0730', 'lrdn0752', 'lrdn0760', 'lrdn0775', 'lrdn0786', 'lrdn0809', 'lrdn0833', 'lrdn0839', 'lrdn0852', 'lrdn0867', 'lrdn0872', 'lrdn0888', 'lrdn0901', 'lrdn0957', 'lrdn0959']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0504,lrdn0512,lrdn0522,lrdn0534,lrdn0546,lrdn0550,lrdn0564,lrdn0590,lrdn0593,lrdn0611,lrdn0627,lrdn0636,lrdn0658,lrdn0669,lrdn0701,lrdn0715,lrdn0726,lrdn0730,lrdn0752,lrdn0760,lrdn0775,lrdn0786,lrdn0809,lrdn0833,lrdn0839,lrdn0852,lrdn0867,lrdn0872,lrdn0888,lrdn0901,lrdn0957,lrdn0959 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/a2a_b -msgsize 33554432 -iter 999999
+        '
+[DEBUG]: Node List is: ['lrdn0001', 'lrdn0009', 'lrdn0015', 'lrdn0031', 'lrdn0046', 'lrdn0048', 'lrdn0061', 'lrdn0070', 'lrdn0075', 'lrdn0101', 'lrdn0126', 'lrdn0130', 'lrdn0141', 'lrdn0152', 'lrdn0159', 'lrdn0165', 'lrdn0181', 'lrdn0196', 'lrdn0211', 'lrdn0232', 'lrdn0242', 'lrdn0268', 'lrdn0287', 'lrdn0305', 'lrdn0316', 'lrdn0344', 'lrdn0345', 'lrdn0368', 'lrdn0391', 'lrdn0399', 'lrdn0411', 'lrdn0444']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0001,lrdn0009,lrdn0015,lrdn0031,lrdn0046,lrdn0048,lrdn0061,lrdn0070,lrdn0075,lrdn0101,lrdn0126,lrdn0130,lrdn0141,lrdn0152,lrdn0159,lrdn0165,lrdn0181,lrdn0196,lrdn0211,lrdn0232,lrdn0242,lrdn0268,lrdn0287,lrdn0305,lrdn0316,lrdn0344,lrdn0345,lrdn0368,lrdn0391,lrdn0399,lrdn0411,lrdn0444 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/ardc_b -msgsize 16777216 -iter 50 -maxsamples 50
+        '
+[INFO] Application 1 was intentionally terminated (exit code: -9). This is expected.
+Ran 55 iterations. Measured 50 iterations.
+--- [INFO] Run 15 completata in 8.4721 secondi ---
+ Run 16:
+[DEBUG]: Node List is: ['lrdn0504', 'lrdn0512', 'lrdn0522', 'lrdn0534', 'lrdn0546', 'lrdn0550', 'lrdn0564', 'lrdn0590', 'lrdn0593', 'lrdn0611', 'lrdn0627', 'lrdn0636', 'lrdn0658', 'lrdn0669', 'lrdn0701', 'lrdn0715', 'lrdn0726', 'lrdn0730', 'lrdn0752', 'lrdn0760', 'lrdn0775', 'lrdn0786', 'lrdn0809', 'lrdn0833', 'lrdn0839', 'lrdn0852', 'lrdn0867', 'lrdn0872', 'lrdn0888', 'lrdn0901', 'lrdn0957', 'lrdn0959']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0504,lrdn0512,lrdn0522,lrdn0534,lrdn0546,lrdn0550,lrdn0564,lrdn0590,lrdn0593,lrdn0611,lrdn0627,lrdn0636,lrdn0658,lrdn0669,lrdn0701,lrdn0715,lrdn0726,lrdn0730,lrdn0752,lrdn0760,lrdn0775,lrdn0786,lrdn0809,lrdn0833,lrdn0839,lrdn0852,lrdn0867,lrdn0872,lrdn0888,lrdn0901,lrdn0957,lrdn0959 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/a2a_b -msgsize 33554432 -iter 999999
+        '
+[DEBUG]: Node List is: ['lrdn0001', 'lrdn0009', 'lrdn0015', 'lrdn0031', 'lrdn0046', 'lrdn0048', 'lrdn0061', 'lrdn0070', 'lrdn0075', 'lrdn0101', 'lrdn0126', 'lrdn0130', 'lrdn0141', 'lrdn0152', 'lrdn0159', 'lrdn0165', 'lrdn0181', 'lrdn0196', 'lrdn0211', 'lrdn0232', 'lrdn0242', 'lrdn0268', 'lrdn0287', 'lrdn0305', 'lrdn0316', 'lrdn0344', 'lrdn0345', 'lrdn0368', 'lrdn0391', 'lrdn0399', 'lrdn0411', 'lrdn0444']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0001,lrdn0009,lrdn0015,lrdn0031,lrdn0046,lrdn0048,lrdn0061,lrdn0070,lrdn0075,lrdn0101,lrdn0126,lrdn0130,lrdn0141,lrdn0152,lrdn0159,lrdn0165,lrdn0181,lrdn0196,lrdn0211,lrdn0232,lrdn0242,lrdn0268,lrdn0287,lrdn0305,lrdn0316,lrdn0344,lrdn0345,lrdn0368,lrdn0391,lrdn0399,lrdn0411,lrdn0444 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/ardc_b -msgsize 16777216 -iter 50 -maxsamples 50
+        '
+[INFO] Application 1 was intentionally terminated (exit code: -9). This is expected.
+Ran 55 iterations. Measured 50 iterations.
+--- [INFO] Run 16 completata in 8.4485 secondi ---
+ Run 17:
+[DEBUG]: Node List is: ['lrdn0504', 'lrdn0512', 'lrdn0522', 'lrdn0534', 'lrdn0546', 'lrdn0550', 'lrdn0564', 'lrdn0590', 'lrdn0593', 'lrdn0611', 'lrdn0627', 'lrdn0636', 'lrdn0658', 'lrdn0669', 'lrdn0701', 'lrdn0715', 'lrdn0726', 'lrdn0730', 'lrdn0752', 'lrdn0760', 'lrdn0775', 'lrdn0786', 'lrdn0809', 'lrdn0833', 'lrdn0839', 'lrdn0852', 'lrdn0867', 'lrdn0872', 'lrdn0888', 'lrdn0901', 'lrdn0957', 'lrdn0959']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0504,lrdn0512,lrdn0522,lrdn0534,lrdn0546,lrdn0550,lrdn0564,lrdn0590,lrdn0593,lrdn0611,lrdn0627,lrdn0636,lrdn0658,lrdn0669,lrdn0701,lrdn0715,lrdn0726,lrdn0730,lrdn0752,lrdn0760,lrdn0775,lrdn0786,lrdn0809,lrdn0833,lrdn0839,lrdn0852,lrdn0867,lrdn0872,lrdn0888,lrdn0901,lrdn0957,lrdn0959 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/a2a_b -msgsize 33554432 -iter 999999
+        '
+[DEBUG]: Node List is: ['lrdn0001', 'lrdn0009', 'lrdn0015', 'lrdn0031', 'lrdn0046', 'lrdn0048', 'lrdn0061', 'lrdn0070', 'lrdn0075', 'lrdn0101', 'lrdn0126', 'lrdn0130', 'lrdn0141', 'lrdn0152', 'lrdn0159', 'lrdn0165', 'lrdn0181', 'lrdn0196', 'lrdn0211', 'lrdn0232', 'lrdn0242', 'lrdn0268', 'lrdn0287', 'lrdn0305', 'lrdn0316', 'lrdn0344', 'lrdn0345', 'lrdn0368', 'lrdn0391', 'lrdn0399', 'lrdn0411', 'lrdn0444']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0001,lrdn0009,lrdn0015,lrdn0031,lrdn0046,lrdn0048,lrdn0061,lrdn0070,lrdn0075,lrdn0101,lrdn0126,lrdn0130,lrdn0141,lrdn0152,lrdn0159,lrdn0165,lrdn0181,lrdn0196,lrdn0211,lrdn0232,lrdn0242,lrdn0268,lrdn0287,lrdn0305,lrdn0316,lrdn0344,lrdn0345,lrdn0368,lrdn0391,lrdn0399,lrdn0411,lrdn0444 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/ardc_b -msgsize 16777216 -iter 50 -maxsamples 50
+        '
+[INFO] Application 1 was intentionally terminated (exit code: -9). This is expected.
+Ran 55 iterations. Measured 50 iterations.
+--- [INFO] Run 17 completata in 8.4677 secondi ---
+ Run 18:
+[DEBUG]: Node List is: ['lrdn0504', 'lrdn0512', 'lrdn0522', 'lrdn0534', 'lrdn0546', 'lrdn0550', 'lrdn0564', 'lrdn0590', 'lrdn0593', 'lrdn0611', 'lrdn0627', 'lrdn0636', 'lrdn0658', 'lrdn0669', 'lrdn0701', 'lrdn0715', 'lrdn0726', 'lrdn0730', 'lrdn0752', 'lrdn0760', 'lrdn0775', 'lrdn0786', 'lrdn0809', 'lrdn0833', 'lrdn0839', 'lrdn0852', 'lrdn0867', 'lrdn0872', 'lrdn0888', 'lrdn0901', 'lrdn0957', 'lrdn0959']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0504,lrdn0512,lrdn0522,lrdn0534,lrdn0546,lrdn0550,lrdn0564,lrdn0590,lrdn0593,lrdn0611,lrdn0627,lrdn0636,lrdn0658,lrdn0669,lrdn0701,lrdn0715,lrdn0726,lrdn0730,lrdn0752,lrdn0760,lrdn0775,lrdn0786,lrdn0809,lrdn0833,lrdn0839,lrdn0852,lrdn0867,lrdn0872,lrdn0888,lrdn0901,lrdn0957,lrdn0959 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/a2a_b -msgsize 33554432 -iter 999999
+        '
+[DEBUG]: Node List is: ['lrdn0001', 'lrdn0009', 'lrdn0015', 'lrdn0031', 'lrdn0046', 'lrdn0048', 'lrdn0061', 'lrdn0070', 'lrdn0075', 'lrdn0101', 'lrdn0126', 'lrdn0130', 'lrdn0141', 'lrdn0152', 'lrdn0159', 'lrdn0165', 'lrdn0181', 'lrdn0196', 'lrdn0211', 'lrdn0232', 'lrdn0242', 'lrdn0268', 'lrdn0287', 'lrdn0305', 'lrdn0316', 'lrdn0344', 'lrdn0345', 'lrdn0368', 'lrdn0391', 'lrdn0399', 'lrdn0411', 'lrdn0444']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0001,lrdn0009,lrdn0015,lrdn0031,lrdn0046,lrdn0048,lrdn0061,lrdn0070,lrdn0075,lrdn0101,lrdn0126,lrdn0130,lrdn0141,lrdn0152,lrdn0159,lrdn0165,lrdn0181,lrdn0196,lrdn0211,lrdn0232,lrdn0242,lrdn0268,lrdn0287,lrdn0305,lrdn0316,lrdn0344,lrdn0345,lrdn0368,lrdn0391,lrdn0399,lrdn0411,lrdn0444 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/ardc_b -msgsize 16777216 -iter 50 -maxsamples 50
+        '
+[INFO] Application 1 was intentionally terminated (exit code: -9). This is expected.
+Ran 55 iterations. Measured 50 iterations.
+--- [INFO] Run 18 completata in 8.4999 secondi ---
+ Run 19:
+[DEBUG]: Node List is: ['lrdn0504', 'lrdn0512', 'lrdn0522', 'lrdn0534', 'lrdn0546', 'lrdn0550', 'lrdn0564', 'lrdn0590', 'lrdn0593', 'lrdn0611', 'lrdn0627', 'lrdn0636', 'lrdn0658', 'lrdn0669', 'lrdn0701', 'lrdn0715', 'lrdn0726', 'lrdn0730', 'lrdn0752', 'lrdn0760', 'lrdn0775', 'lrdn0786', 'lrdn0809', 'lrdn0833', 'lrdn0839', 'lrdn0852', 'lrdn0867', 'lrdn0872', 'lrdn0888', 'lrdn0901', 'lrdn0957', 'lrdn0959']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0504,lrdn0512,lrdn0522,lrdn0534,lrdn0546,lrdn0550,lrdn0564,lrdn0590,lrdn0593,lrdn0611,lrdn0627,lrdn0636,lrdn0658,lrdn0669,lrdn0701,lrdn0715,lrdn0726,lrdn0730,lrdn0752,lrdn0760,lrdn0775,lrdn0786,lrdn0809,lrdn0833,lrdn0839,lrdn0852,lrdn0867,lrdn0872,lrdn0888,lrdn0901,lrdn0957,lrdn0959 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/a2a_b -msgsize 33554432 -iter 999999
+        '
+[DEBUG]: Node List is: ['lrdn0001', 'lrdn0009', 'lrdn0015', 'lrdn0031', 'lrdn0046', 'lrdn0048', 'lrdn0061', 'lrdn0070', 'lrdn0075', 'lrdn0101', 'lrdn0126', 'lrdn0130', 'lrdn0141', 'lrdn0152', 'lrdn0159', 'lrdn0165', 'lrdn0181', 'lrdn0196', 'lrdn0211', 'lrdn0232', 'lrdn0242', 'lrdn0268', 'lrdn0287', 'lrdn0305', 'lrdn0316', 'lrdn0344', 'lrdn0345', 'lrdn0368', 'lrdn0391', 'lrdn0399', 'lrdn0411', 'lrdn0444']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0001,lrdn0009,lrdn0015,lrdn0031,lrdn0046,lrdn0048,lrdn0061,lrdn0070,lrdn0075,lrdn0101,lrdn0126,lrdn0130,lrdn0141,lrdn0152,lrdn0159,lrdn0165,lrdn0181,lrdn0196,lrdn0211,lrdn0232,lrdn0242,lrdn0268,lrdn0287,lrdn0305,lrdn0316,lrdn0344,lrdn0345,lrdn0368,lrdn0391,lrdn0399,lrdn0411,lrdn0444 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/ardc_b -msgsize 16777216 -iter 50 -maxsamples 50
+        '
+[INFO] Application 1 was intentionally terminated (exit code: -9). This is expected.
+Ran 55 iterations. Measured 50 iterations.
+--- [INFO] Run 19 completata in 8.5301 secondi ---
+ Run 20:
+[DEBUG]: Node List is: ['lrdn0504', 'lrdn0512', 'lrdn0522', 'lrdn0534', 'lrdn0546', 'lrdn0550', 'lrdn0564', 'lrdn0590', 'lrdn0593', 'lrdn0611', 'lrdn0627', 'lrdn0636', 'lrdn0658', 'lrdn0669', 'lrdn0701', 'lrdn0715', 'lrdn0726', 'lrdn0730', 'lrdn0752', 'lrdn0760', 'lrdn0775', 'lrdn0786', 'lrdn0809', 'lrdn0833', 'lrdn0839', 'lrdn0852', 'lrdn0867', 'lrdn0872', 'lrdn0888', 'lrdn0901', 'lrdn0957', 'lrdn0959']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0504,lrdn0512,lrdn0522,lrdn0534,lrdn0546,lrdn0550,lrdn0564,lrdn0590,lrdn0593,lrdn0611,lrdn0627,lrdn0636,lrdn0658,lrdn0669,lrdn0701,lrdn0715,lrdn0726,lrdn0730,lrdn0752,lrdn0760,lrdn0775,lrdn0786,lrdn0809,lrdn0833,lrdn0839,lrdn0852,lrdn0867,lrdn0872,lrdn0888,lrdn0901,lrdn0957,lrdn0959 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/a2a_b -msgsize 33554432 -iter 999999
+        '
+[DEBUG]: Node List is: ['lrdn0001', 'lrdn0009', 'lrdn0015', 'lrdn0031', 'lrdn0046', 'lrdn0048', 'lrdn0061', 'lrdn0070', 'lrdn0075', 'lrdn0101', 'lrdn0126', 'lrdn0130', 'lrdn0141', 'lrdn0152', 'lrdn0159', 'lrdn0165', 'lrdn0181', 'lrdn0196', 'lrdn0211', 'lrdn0232', 'lrdn0242', 'lrdn0268', 'lrdn0287', 'lrdn0305', 'lrdn0316', 'lrdn0344', 'lrdn0345', 'lrdn0368', 'lrdn0391', 'lrdn0399', 'lrdn0411', 'lrdn0444']
+[DEBUG]: Detected CRAB_SYSTEM=leonardo. Adding SLURM option: --partition=boost_usr_prod
+[DEBUG]: SLURM command is: srun --export=ALL --partition=boost_usr_prod --nodelist lrdn0001,lrdn0009,lrdn0015,lrdn0031,lrdn0046,lrdn0048,lrdn0061,lrdn0070,lrdn0075,lrdn0101,lrdn0126,lrdn0130,lrdn0141,lrdn0152,lrdn0159,lrdn0165,lrdn0181,lrdn0196,lrdn0211,lrdn0232,lrdn0242,lrdn0268,lrdn0287,lrdn0305,lrdn0316,lrdn0344,lrdn0345,lrdn0368,lrdn0391,lrdn0399,lrdn0411,lrdn0444 --cpu-bind=socket -n 32 -N 32 bash -c '
+        module purge >&2
+        module load openmpi >&2
+        module list >&2
+        /leonardo/home/userexternal/mmarcel3/crab/benchmarks/blink/bin/ardc_b -msgsize 16777216 -iter 50 -maxsamples 50
+        '
+[INFO] Application 1 was intentionally terminated (exit code: -9). This is expected.
+Ran 55 iterations. Measured 50 iterations.
+--- [INFO] Run 20 completata in 8.5414 secondi ---
+
+Logging data...
+Dati per App 0 salvati in: ./data/leonardo/2025-10-08_12-02-52-702369/data_app_0.csv
+--- [WORKER] Engine run finished. ---
