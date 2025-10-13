@@ -1,5 +1,0 @@
-app_mix,system,numnodes,allocation_mode,allocation_split,ppn,out_format,extra,path
-tesi_victim_allreduce_8nodes_128KB_isolated,local,8,l,100,1,csv,tesi_victim_allreduce_8nodes_128KB_isolated,./data/local/2025-10-07_18-54-49-445918
-tesi_victim_allreduce_8nodes_128KB_isolated,leonardo,8,l,100,1,csv,tesi_victim_allreduce_8nodes_128KB_isolated,./data/leonardo/2025-10-07_18-56-14-897347
-tesi_victim_allreduce_vs_aggr_a2a_interleaved,leonardo,32,i,25:75,1,csv,tesi_victim_allreduce_vs_aggr_a2a_interleaved,./data/leonardo/2025-10-07_19-00-13-839103
-tesi_extreme_victim_allreduce_vs_aggr_a2a_interleaved,leonardo,64,i,12.5:87.5,1,csv,tesi_extreme_victim_allreduce_vs_aggr_a2a_interleaved,./data/leonardo/2025-10-07_19-21-14-073787
