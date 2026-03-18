@@ -53,5 +53,6 @@ class wl_manager:
             final_cmd  # Usiamo il comando calcolato (wrapped o raw)
         ).strip() 
 
-        print("[DEBUG]: SLURM command is: " + slurm_string)
+        # Debug output routed through the CRAB logger by the caller;
+        # the wl_manager itself stays logger-agnostic.
         return slurm_string
