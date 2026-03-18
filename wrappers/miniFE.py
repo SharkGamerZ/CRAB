@@ -34,7 +34,6 @@ class app(base):
                     break
             if path is None:
                 # cannot find a file yaml file created by miniFE
-                print('No yaml file found.')
                 return [[] for _ in range(8)]
             with open(path, 'r') as file:
                 lines = file.readlines()

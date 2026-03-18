@@ -20,7 +20,6 @@ class app(base):
             files += [file]
         if len(files) == 0:
             # cannot find the json file created by ib_send_lat
-            print('No output files found.')
             return [[] for _ in range(len(self.metadata))]
         samples = []
         for path in files:
