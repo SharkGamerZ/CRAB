@@ -6,6 +6,7 @@ Provides a hierarchical logger that tracks execution context
 pluggable handlers.
 """
 
+import datetime
 import threading
 from enum import IntEnum
 from typing import List, Optional, TYPE_CHECKING
@@ -89,7 +90,6 @@ class CrabLogger:
         if level < self.level:
             return
 
-        import datetime
         ts = datetime.datetime.now().strftime("%H:%M:%S")
         record = LogRecord(
             level=level,
